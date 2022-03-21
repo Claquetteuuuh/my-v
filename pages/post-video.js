@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head'
 import PostVideo from '../components/PostVideo';
+import Navbar from '../components/Navbar'
 
 const postVideo = () => {
     return (
@@ -12,6 +13,7 @@ const postVideo = () => {
                 <link rel="icon" href="/img/logos/logo-black.png" />
                 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></link>
             </Head>
+            <Navbar />
             <PostVideo />
         </div>
     );
