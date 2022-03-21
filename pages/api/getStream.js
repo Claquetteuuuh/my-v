@@ -10,6 +10,7 @@ export default async function handler(req, res) {
             }
         })
         .then((e) => {
+            console.log(e.data.result)
             res.status(200).json(e.data.result)
         })
     }
