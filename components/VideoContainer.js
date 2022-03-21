@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/VideoContainer.module.css'
 import Video from './Video';
 import axios from 'axios'
 
 const VideoContainer = () => {
+    
+    const [data, setdata] = useState();
 
-    const res = axios.get(`https://api.cloudflare.com/client/v4/accounts/b34aad77a0649956f636aabd25654a21/stream`, {
-        headers:{
-            Authorization: `Bearer 126696776eccea97c410b5b001deafebf6bdd`
-        }
-    })
+    useEffect(() => {
+        axios.get('/api/getStream')
+        .then((res) => {
+            setdata(res.data)
+        })
 
-    const call = () =>{
-        console.log(res)
-    }
+    }, [])
+
+
 
     return (
         <div className={styles.VideoContainer}>
-            <button onClick={call}>click</button>
             <Video 
                 miniature="https://media.discordapp.net/attachments/892425478386876526/954939935838855218/miniature.png"
                 title="Lorem ipsum dolor sit amet."
