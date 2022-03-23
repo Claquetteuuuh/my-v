@@ -27,7 +27,8 @@ export default async function handler(req, res) {
             'Content-Type': 'application/json'
         };
 
-        var dataString = '{"maxDurationSeconds":300,"thumbnailTimestampPct":0.529241,"allowedOrigins":["my-v.xyz"],"requireSignedURLs":true}';
+        var dataString = '{"maxDurationSeconds":300,"thumbnailTimestampPct":0.529241,"requireSignedURLs":true}';
+        // var dataString = '{"maxDurationSeconds":300,"thumbnailTimestampPct":0.529241,"allowedOrigins":["my-v.xyz"],"requireSignedURLs":true}';
 
         var options = {
             url: 'https://api.cloudflare.com/client/v4/accounts/b34aad77a0649956f636aabd25654a21/stream/direct_upload',
