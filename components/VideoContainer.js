@@ -19,7 +19,6 @@ const VideoContainer = () => {
 
     return (
         <div className={styles.VideoContainer}>
-            {/* <button onClick={()=>{console.log(data)}}></button> */}
             
             {data.map((video) => (
                 
