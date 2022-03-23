@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from '../styles/Navbar.module.css'
-import Image from 'next/image'
 import Link from 'next/link';
 
 const Navbar = (props) => {
     return (
         <div className={styles.navbar}>
             <div className={styles.left}>
-                <Link href="/"><Image src='/img/logos/logo-gradient.png' height="47" width='55' /></Link>
+                <Link href="/"><img src='/img/logos/logo-gradient.png' height="47" width='55' /></Link>
             </div>
             <div className={styles.input}>
                 <input type="text" placeholder='rechercher une video...'/>

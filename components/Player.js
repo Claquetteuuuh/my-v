@@ -10,7 +10,8 @@ const Player = () => {
 
     return (
         <div className={styles.player}>
-            <Stream controls src={id} className={styles.iframe} />
+            <img className={styles.loading} width={200} src="/img/gif/loading.gif" alt="loading gif" />
+            <Stream controls autoplay src={id} className={styles.iframe} />
         </div>
     );
 };

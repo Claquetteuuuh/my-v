@@ -6,12 +6,15 @@ import axios from 'axios'
 const VideoContainer = () => {
     
     const [data, setdata] = useState([]);
+    const [loading, setloading] = useState(true);
 
-    useEffect(() => {
-        axios.get('/api/get-stream')
+    useEffect(async () => {
+        await axios.get('/api/get-stream')
         .then((res) => {
             setdata(res.data)
         })
+
+        setloading(false)
 
     }, [])
 
@@ -19,7 +22,7 @@ const VideoContainer = () => {
 
     return (
         <div className={styles.VideoContainer}>
-            
+            {(loading == true)? <img className={styles.loading} src="/img/gif/loading.gif" alt="loading image" width={200} /> : console.log('loading ended')}
             {data.map((video) => (
                 
                 <Video 
@@ -32,6 +35,8 @@ const VideoContainer = () => {
                     date="12/12/1212"
                     id={video.uid}
                 />
+
+                
             ))}
             {/* <Video 
                 miniature="https://media.discordapp.net/attachments/892425478386876526/954939935838855218/miniature.png"
