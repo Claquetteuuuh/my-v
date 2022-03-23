@@ -1,34 +1,72 @@
 import React, { useRef, useState } from 'react';
 import styles from '../styles/PostVideo.module.css'
 import axios from 'axios'
+import * as tus from 'tus-js-client'
+import { useTus } from 'use-tus';
 
 const PostVideo = () => {
     
     const form = useRef(null)
     
-    const upload = async () =>{
-        // axios.post("/api/post-video", {
-        //     file: form.current.value
-        // })
-        let oneTimeUrl = ''
+    const uploadFunc = async () =>{
+        
+        let file = form.current.files[0]
 
-        const formData = new FormData()
-        formData.append('file', form.current.value)
+        if(!file){
+            return;
+        }
 
-        await axios.get("/api/get-token").then((res) => {
-            oneTimeUrl = res.data.result.uploadURL
+        let upload = new tus.Upload(file, {
+            // Endpoint is the upload creation URL from your tus server
+            endpoint: "/api/get-url",
+            // Retry delays will enable tus-js-client to automatically retry on errors
+            retryDelays: [0, 3000, 5000, 10000, 20000],
+            // Attach additional meta data about the file for the server
+
+            headers:{
+                filesize: file.size,
+            },
+
+            metadata: {
+                filename: file.name,
+                filetype: file.type,
+            },
+            // Callback for errors which cannot be fixed using retries
+            onError: function(error) {
+                console.log("Failed because: " + error)
+            },
+            // Callback for reporting upload progress
+            onProgress: function(bytesUploaded, bytesTotal) {
+                var percentage = (bytesUploaded / bytesTotal * 100).toFixed(2)
+                console.log(bytesUploaded, bytesTotal, percentage + "%")
+            },
+            // Callback for once the upload is completed
+            onSuccess: function() {
+                console.log("Download %s from %s", upload.file.name, upload.url)
+            }
         })
-        const uploadVideo = await fetch("/api/post-video", {
-            method: "POST",
-            body: formData,
-            oneTimeCloudFlareUrl: oneTimeUrl
+
+
+        upload.findPreviousUploads().then(function (previousUploads) {
+            // Found previous uploads so we select the first one. 
+            if (previousUploads.length) {
+                upload.resumeFromPreviousUpload(previousUploads[0])
+            }
+    
+
+            if(!upload){
+                return;
+            }
+
+            upload.start()
+            console.log(upload);
         })
     }
 
     return (
         <div className={styles.PostVideo}>
             <input ref={form} type="file" accept='video/*' />
-            <button onClick={upload}>Upload your file</button>
+            <button onClick={uploadFunc}>Upload your file</button>
         </div>
     );
 };
