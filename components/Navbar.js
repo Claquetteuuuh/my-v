@@ -7,7 +7,7 @@ const Navbar = (props) => {
     return (
         <div className={styles.navbar}>
             <div className={styles.left}>
-                <Image src='/img/logos/logo-gradient.png' height="47" width='55' />
+                <Link href="/"><Image src='/img/logos/logo-gradient.png' height="47" width='55' /></Link>
             </div>
             <div className={styles.input}>
                 <input type="text" placeholder='rechercher une video...'/>
