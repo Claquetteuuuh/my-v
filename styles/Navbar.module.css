@@ -17,6 +17,9 @@
     align-items: center;
     margin-right: 2%;
 }
+.left img{
+    cursor: pointer;
+}
 .input{
     display: flex;
     align-items: center;
