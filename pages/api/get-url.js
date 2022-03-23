@@ -2,8 +2,6 @@ import request from "request";
 
 export default function handler(req, res) {
 
-    console.log('request')
-
     if(req.method === 'POST'){
 
         console.log("Post request at /get-url !")
@@ -26,10 +24,10 @@ export default function handler(req, res) {
         function getUrlCallback(error, response, body) {
             if (!error && response.statusCode == 201) {
                 console.log('it work');
-                res.status(201).json(response)
-                console.log(response);
+                res.status(200).json(response)
             }else{
                 console.log('it dont work');
+                res.status(400).json({message: 'not enough stockage'})
             }
         }
 
