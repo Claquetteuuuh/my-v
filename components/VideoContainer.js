@@ -23,6 +23,7 @@ const VideoContainer = () => {
             {data.map((video) => (
                 
                 <Video 
+                    key={video.uid}
                     miniature={video.thumbnail}
                     title={video.meta.filename}
                     channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
