@@ -5,7 +5,7 @@ import Link from 'next/link'
 const Video = (props) => {
     return (
         <div className={styles.Video}>
-            <Link href={`/${props.id}`}><div className={styles.miniature}><img src={props.miniature} alt={`miniature of ${props.title}`} /></div></Link>
+            <Link href={`/view?id=${props.id}`}><div className={styles.miniature}><img src={props.miniature} alt={`miniature of ${props.title}`} height="218" /></div></Link>
             <div className={styles.bottom}>
                 <Link href={`/channel/${props.channelName}`} ><img src={props.channelPicture} alt={`picture of ${props.channelName}`} /></Link>
                 <div className={styles.right}>

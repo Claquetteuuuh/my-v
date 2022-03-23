@@ -1,11 +1,21 @@
 import React from 'react';
 import styles from '../styles/Player.module.css'
 import { Stream } from "@cloudflare/stream-react";
+import { useRouter } from 'next/router';
 
 const Player = () => {
+
+    const router = useRouter()
+    const {id} = router.query
+
+    const logQuery = () =>{
+        console.log(query)
+    }
+
     return (
         <div className={styles.player}>
-            <Stream controls src={'516a29626a69548de66a6c34d7b9f40e'} className={styles.iframe} />
+            <button onClick={logQuery}>click me</button>
+            <Stream controls src={id} className={styles.iframe} />
         </div>
     );
 };

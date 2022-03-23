@@ -5,10 +5,10 @@ import axios from 'axios'
 
 const VideoContainer = () => {
     
-    const [data, setdata] = useState();
+    const [data, setdata] = useState([]);
 
     useEffect(() => {
-        axios.get('/api/getStream')
+        axios.get('/api/get-stream')
         .then((res) => {
             setdata(res.data)
         })
@@ -19,7 +19,21 @@ const VideoContainer = () => {
 
     return (
         <div className={styles.VideoContainer}>
-            <Video 
+            {/* <button onClick={()=>{console.log(data)}}></button> */}
+            
+            {data.map((video) => (
+                
+                <Video 
+                    miniature={video.thumbnail}
+                    title={video.meta.filename}
+                    channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
+                    channelName="Lorem susu"
+                    views="10M"
+                    date="12/12/1212"
+                    id={video.uid}
+                />
+            ))}
+            {/* <Video 
                 miniature="https://media.discordapp.net/attachments/892425478386876526/954939935838855218/miniature.png"
                 title="Lorem ipsum dolor sit amet."
                 channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
@@ -27,8 +41,8 @@ const VideoContainer = () => {
                 views="10M"
                 date="12/12/1212"
                 id="c054f2a7-7352-41f8-9f93-8cd1051cf198"
-            />
-            <Video 
+            /> */}
+            {/* <Video 
                 miniature="https://media.discordapp.net/attachments/892425478386876526/954939935838855218/miniature.png"
                 title="Lorem ipsum dolor sit amet."
                 channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
@@ -144,7 +158,7 @@ const VideoContainer = () => {
                 views="10M"
                 date="12/12/1212"
                 id="9ada35bc-2f5d-4ffb-8f20-7c2bdc9df11a"
-            />
+            /> */}
         </div>
     );
 };
