@@ -6,12 +6,13 @@ export default function handler(req, res) {
 
         console.log("Post request at /get-url !")
 
+
         var headers = {
             'X-Auth-Email': `${process.env.cloudFlareEmail}`,
             'X-Auth-Key': `${process.env.cloudFlareAuthKey}`,
             'Content-Type': 'application/json',
             'Tus-Resumable': '1.0.0',
-            'Upload-Length': req.headers.filesize,
+            'Upload-Length': req.headers['upload-length'],
         };
 
         var options = {
@@ -23,11 +24,11 @@ export default function handler(req, res) {
 
         function getUrlCallback(error, response, body) {
             if (!error && response.statusCode == 201) {
-                console.log('it work');
-                res.status(200).json(response)
+                res.status(201).send(JSON.parse(JSON.stringify(response.headers)))
             }else{
                 console.log('it dont work');
-                res.status(400).json({message: 'not enough stockage'})
+                res.status(400)
+                // res.status(400).json({message: 'not enough stockage'})
             }
         }
 

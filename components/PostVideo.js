@@ -23,8 +23,10 @@ const PostVideo = () => {
             retryDelays: [0, 3000, 5000, 10000, 20000],
             // Attach additional meta data about the file for the server
 
+            uploadSize: file.size,
+
             headers:{
-                filesize: file.size,
+                'Tus-Resumable': '1.0.0'
             },
 
             metadata: {
@@ -34,6 +36,7 @@ const PostVideo = () => {
             // Callback for errors which cannot be fixed using retries
             onError: function(error) {
                 console.log("Failed because: " + error)
+                console.log()
             },
             // Callback for reporting upload progress
             onProgress: function(bytesUploaded, bytesTotal) {
