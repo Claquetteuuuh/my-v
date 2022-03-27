@@ -17,26 +17,19 @@ const PostVideo = () => {
         }
 
         let upload = new tus.Upload(file, {
-            // Endpoint is the upload creation URL from your tus server
+
             endpoint: "/api/get-url",
-            // Retry delays will enable tus-js-client to automatically retry on errors
+
             retryDelays: [0, 3000, 5000, 10000, 20000],
-            // Attach additional meta data about the file for the server
 
             uploadSize: file.size,
 
-            headers:{
-                'Tus-Resumable': '1.0.0'
-            },
-
             metadata: {
-                filename: file.name,
-                filetype: file.type,
+                fileName: file.name
             },
             // Callback for errors which cannot be fixed using retries
             onError: function(error) {
                 console.log("Failed because: " + error)
-                console.log()
             },
             // Callback for reporting upload progress
             onProgress: function(bytesUploaded, bytesTotal) {

@@ -11,7 +11,7 @@ const view = () => {
                 <title>MyV | Watch video</title>
                 <meta name="description" content="regardez des videos gratuitement" />
                 <link rel="icon" href="/img/logos/logo-black.png" />
-                <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></link>
+                {/* <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></link> */}
             </Head>
             <Navbar />
             <Player />  
