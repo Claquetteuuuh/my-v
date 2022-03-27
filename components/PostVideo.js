@@ -10,6 +10,8 @@ const PostVideo = () => {
     const progressBar = useRef(null)
     const label = useRef(null)
 
+    
+
     const fileUploaded = () =>{
         if(form.current.files[0].name != undefined){
             label.current.innerHTML = form.current.files[0].name
@@ -49,6 +51,7 @@ const PostVideo = () => {
             // Callback for once the upload is completed
             onSuccess: function() {
                 progressBar.current.innerHTML = "File uploaded"
+                progressBar.current.innerText = "File uploaded"
                 console.log("Download %s from %s", upload.file.name, upload.url)
             }
         })
