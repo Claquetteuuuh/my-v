@@ -10,17 +10,17 @@ export default function handler(req, res) {
             'Content-Type': 'application/json',
             'Tus-Resumable': '1.0.0',
             'Upload-Length': req.headers['upload-length'],
+            "meta":{
+                "name": `${req.headers['upload-metadata']}`
+            }
+            
         };
 
         let options = {
             url: 'https://api.cloudflare.com/client/v4/accounts/b34aad77a0649956f636aabd25654a21/stream?direct_user=true',
             method: 'POST',
             headers: headers,
-            body:{
-                meta:{
-                    name: req.headers['upload-metadata']
-                }
-            }
+           
         };
 
         function getUrlCallback(error, response, body) {
