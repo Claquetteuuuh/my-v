@@ -1,6 +1,44 @@
 .PostVideo{
+    min-height: 100vh;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+.PostVideo img{
+    height: 20%;
+    margin-top: 100px;
+}
+.postContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+}
+.postContainer input{
+    display: none;
+}
+.postContainer label{
+    color: rgba(0, 0, 0, 0.300);
+    height: 60px;
+    width: 250px;
+    background: none;
+    border-radius: 10px;
+    border: 4px solid rgba(0, 0, 0, 0.200);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Roboto',-apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    cursor: pointer;
+    transition-duration: .1s;
+}
+.postContainer label:hover{
+    transition-duration: .3s;
+    background-color: rgba(0, 0, 0, 0.400);
+    border: 4px solid rgba(0, 0, 0, 0.000);
+    color: white;
 }

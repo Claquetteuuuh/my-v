@@ -55,14 +55,19 @@ const PostVideo = () => {
             }
 
             upload.start()
-            console.log(upload);
         })
     }
 
     return (
         <div className={styles.PostVideo}>
-            <input ref={form} type="file" accept='video/*' />
-            <button onClick={uploadFunc}>Upload your file</button>
+            <img src="/img/logos/logo-gradient.svg" alt="logo myv" />
+            <div className={styles.postContainer}>
+                <input ref={form} id="file" type="file" accept='video/*' />
+                <label for="file">
+                    select your file
+                </label>
+                <button onClick={uploadFunc}>Upload your file</button>
+            </div>
         </div>
     );
 };
