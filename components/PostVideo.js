@@ -7,7 +7,16 @@ import { useTus } from 'use-tus';
 const PostVideo = () => {
     
     const form = useRef(null)
-    
+    const progressBar = useRef(null)
+    const label = useRef(null)
+
+    const fileUploaded = () =>{
+        if(form.current.files[0].name != undefined){
+            label.current.innerHTML = form.current.files[0].name
+        }
+    }
+
+
     const uploadFunc = async () =>{
         
         let file = form.current.files[0]
@@ -35,9 +44,11 @@ const PostVideo = () => {
             onProgress: function(bytesUploaded, bytesTotal) {
                 var percentage = (bytesUploaded / bytesTotal * 100).toFixed(2)
                 console.log(bytesUploaded, bytesTotal, percentage + "%")
+                progressBar.current.style.width = `${percentage*3}px`
             },
             // Callback for once the upload is completed
             onSuccess: function() {
+                progressBar.current.style.innerHTML = "File uploaded"
                 console.log("Download %s from %s", upload.file.name, upload.url)
             }
         })
@@ -62,11 +73,15 @@ const PostVideo = () => {
         <div className={styles.PostVideo}>
             <img src="/img/logos/logo-gradient.svg" alt="logo myv" />
             <div className={styles.postContainer}>
-                <input ref={form} id="file" type="file" accept='video/*' />
-                <label for="file">
+                <input onChange={fileUploaded} ref={form} id="file" type="file" accept='video/*' />
+                <label ref={label} htmlFor="file">
                     select your file
                 </label>
-                <button onClick={uploadFunc}>Upload your file</button>
+                <button onClick={uploadFunc}><img src="/img/svg/upload-sign-svgrepo-com.svg" alt="upload logo" /></button>
+                <div className={styles.progressBar}>
+                    <div ref={progressBar} className={styles.inprogress}>uplaoding...</div>
+                    {/* <span className={styles.bar}></span> */}
+                </div>
             </div>
         </div>
     );
