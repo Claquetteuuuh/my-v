@@ -48,7 +48,7 @@ const PostVideo = () => {
             },
             // Callback for once the upload is completed
             onSuccess: function() {
-                progressBar.current.style.innerHTML = "File uploaded"
+                progressBar.current.innerHTML = "File uploaded"
                 console.log("Download %s from %s", upload.file.name, upload.url)
             }
         })
