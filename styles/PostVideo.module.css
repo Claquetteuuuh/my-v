@@ -21,6 +21,7 @@
     display: none;
 }
 .postContainer label{
+    margin-top: 10vh;
     color: rgba(0, 0, 0, 0.300);
     height: 60px;
     width: 250px;

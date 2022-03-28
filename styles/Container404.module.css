@@ -1,0 +1,23 @@
+.global404{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.contain404{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contain404 img{
+    height: 23vw;
+}
+
+.contain404 span{
+    font-size: 25vw;
+    font-weight: 300;
+
+}
