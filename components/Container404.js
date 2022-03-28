@@ -10,7 +10,7 @@ const Container404 = () => {
                 <img src="/img/logos/logo-black-with-outline.svg" alt="logo black" />
                 <span>4</span>
             </div>
-            <h1>Cette Page n'existe pas !</h1>
+            <h1>{"Cette Page n'existe pas !"}</h1>
         </div>
     );
 };
