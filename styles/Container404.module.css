@@ -3,10 +3,11 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    justify-content: center;
 }
 
 .contain404{
-    height: 80%;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,4 +21,10 @@
     font-size: 25vw;
     font-weight: 300;
 
+}
+
+.global404 h1{
+ font-size: xx-large;
+ text-align: center;
+ width: 60%;
 }

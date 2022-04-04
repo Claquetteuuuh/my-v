@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import styles from '../styles/PostVideo.module.css'
 import axios from 'axios'
 import * as tus from 'tus-js-client'
-import { useTus } from 'use-tus';
 
 const PostVideo = () => {
     

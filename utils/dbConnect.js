@@ -7,9 +7,15 @@ async function dbConnect(){
         return
     }
 
-    const db = await mongoose.connect(process.env.mongo_uri, {
+    const db = await mongoose.connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
-    .then('connect to db')
+    .then('connecté a la base')
+
+    connection.isConnected = db.connections[0].readyState
+    console.log(connection.isConnected);
+
 }
+
+export default dbConnect

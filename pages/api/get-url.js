@@ -32,7 +32,6 @@ export default function handler(req, res) {
                 });
                 res.status(201).end()
 
-
             }else{
                 console.log(body)
                 res.status(400).json({message: 'not enough stockage'})

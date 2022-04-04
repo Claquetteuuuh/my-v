@@ -18,8 +18,6 @@ const VideoContainer = () => {
 
     }, [])
 
-
-
     return (
         <div className={styles.VideoContainer}>
             {(loading == true)? <img className={styles.loading} src="/img/gif/loading.gif" alt="loading image" width={200} /> : console.log('loading ended')}
@@ -35,13 +33,8 @@ const VideoContainer = () => {
                     date="12/12/1212"
                     id={video.uid}
                 />
-
                 
             ))}
-
-
-
-
         </div>
     );
 };

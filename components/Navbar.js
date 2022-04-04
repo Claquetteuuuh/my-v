@@ -13,7 +13,7 @@ const Navbar = (props) => {
                 <img src="/img/svg/search-outline.svg" alt="search" />
             </div>
             <div className={styles.right}>
-                {(props.avatar)? <img src={`${props.avatar}`} height={50} width={50} />: <Link href="/login"><img src="/img/svg/login.svg" height={33} width={33} /></Link>}
+                {(props.avatar)? <img src={`${props.avatar}`} height={50} width={50} />: <Link href="/login"><img className={styles.loginButton} src="/img/svg/login.svg" height={33} width={33} /></Link>}
                 <Link href="/post-video"><img className={styles.addButton} src="/img/svg/add-button.svg" height={33} width={33} /></Link>
             </div>
         </div>
