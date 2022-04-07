@@ -1,6 +1,6 @@
 .Video{
     min-width: 350px;
-    width: 400px;
+    width: 390px;
     min-height: 300px;
     height: 320px;
     margin: 5px 10px;
@@ -27,6 +27,20 @@
     height: 57px;
     width: 57px;
     border-radius: 50px;
+    padding: 1.5px;
+    background-image: linear-gradient(
+    175deg,
+    hsl(43deg 100% 52%) 0%,
+    hsl(41deg 100% 49%) 11%,
+    hsl(37deg 100% 49%) 22%,
+    hsl(34deg 100% 48%) 33%,
+    hsl(31deg 100% 47%) 44%,
+    hsl(27deg 100% 46%) 56%,
+    hsl(23deg 100% 45%) 67%,
+    hsl(18deg 100% 44%) 78%,
+    hsl(12deg 100% 42%) 89%,
+    hsl(0deg 100% 41%) 100%
+    );
 }
 .right{
     margin-left: 3px;

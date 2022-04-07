@@ -2,7 +2,6 @@ import Head from 'next/head';
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Player from '../components/Player';
-import styles from '../styles/View.module.css'
 
 const view = () => {
     return (
