@@ -8,3 +8,11 @@
     margin-top: 70px;
     padding-left: 10%;
 }
+
+
+@media screen and (max-width: 836px) {
+    .findcontent{
+        align-items: center;
+        padding: 0;
+    }
+}
