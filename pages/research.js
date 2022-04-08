@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import FindContent from '../components/FindContent';
 import { useRouter } from 'next/router';
 
-const research = () => {
+const Research = () => {
 
     const router = useRouter()
     const {search} = router.query
@@ -23,4 +23,4 @@ const research = () => {
     );
 };
 
-export default research;
+export default Research;

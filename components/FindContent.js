@@ -32,7 +32,7 @@ const FindContent = ({content}) => {
                     views="10M"
                     date="12/12/1212"
                     id={video.uid}
-                />: setFind(true))
+                />: false)
                         
                     
                 ))
