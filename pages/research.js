@@ -17,7 +17,7 @@ const Research = () => {
             </Head>
 
             <Navbar />
-
+            {/* test */}
             <FindContent/>
         </div>
     );
