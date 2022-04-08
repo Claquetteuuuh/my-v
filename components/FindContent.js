@@ -7,6 +7,7 @@ const FindContent = ({content}) => {
 
     const [data, setdata] = useState([]);
     const [loading, setloading] = useState(true);
+    const [find, setFind] = useState(false)
 
     useEffect(async () => {
         await axios.get('/api/get-stream')
@@ -31,7 +32,7 @@ const FindContent = ({content}) => {
                     views="10M"
                     date="12/12/1212"
                     id={video.uid}
-                />: false)
+                />: setFind(true))
                         
                     
                 ))
