@@ -8,6 +8,7 @@ const PostVideo = () => {
     const form = useRef(null)
     const progressBar = useRef(null)
     const label = useRef(null)
+    const [posted, setposted] = useState(false);
 
     
 
@@ -67,6 +68,7 @@ const PostVideo = () => {
                 return;
             }
 
+            setposted(true)
             upload.start()
         })
     }
@@ -79,11 +81,15 @@ const PostVideo = () => {
                 <label ref={label} htmlFor="file">
                     select your file
                 </label>
-                <button onClick={uploadFunc}><img src="/img/svg/upload-sign-svgrepo-com.svg" alt="upload logo" /></button>
-                <div className={styles.progressBar}>
-                    <div ref={progressBar} className={styles.inprogress}>uplaoding...</div>
-                    {/* <span className={styles.bar}></span> */}
-                </div>
+                {
+                (posted == true)?
+                    <div className={styles.progressBar}>
+                        <div ref={progressBar} className={styles.inprogress}>wait for uplaoding...</div>
+                    </div>  
+                :
+                    <button onClick={uploadFunc}><img src="/img/svg/upload-sign-svgrepo-com.svg" alt="upload logo" /></button>
+                }
+                
             </div>
         </div>
     );
