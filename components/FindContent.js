@@ -2,8 +2,12 @@ import React, {useEffect, useState} from 'react';
 import styles from '../styles/findcontent.module.css'
 import axios from 'axios'
 import Video from "./Video"
+import { useRouter } from 'next/router';
 
-const FindContent = ({content}) => {
+const FindContent = () => {
+
+    const router = useRouter()
+    const {search} = router.query
 
     const [data, setdata] = useState([]);
     const [loading, setloading] = useState(true);
@@ -23,7 +27,7 @@ const FindContent = ({content}) => {
         <div className={styles.findcontent}>
             {
                 data.map((video) => (
-                    (video.meta.name.toLowerCase().includes(content.toLowerCase())? <Video 
+                    (video.meta.name.toLowerCase().includes(search.toLowerCase())? <Video 
                     key={video.uid}
                     miniature={video.thumbnail}
                     title={video.meta.name}
