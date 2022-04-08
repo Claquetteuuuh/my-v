@@ -26,7 +26,7 @@ const VideoContainer = () => {
                 <Video 
                     key={video.uid}
                     miniature={video.thumbnail}
-                    title={video.meta.filename}
+                    title={video.meta.name}
                     channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
                     channelName="Lorem susu"
                     views="10M"
