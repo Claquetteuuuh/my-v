@@ -19,7 +19,6 @@ const Research = () => {
             <Navbar />
 
             <FindContent content={search} />
-            
         </div>
     );
 };
