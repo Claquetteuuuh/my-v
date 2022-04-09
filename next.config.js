@@ -8,7 +8,7 @@ const nextConfig = {
     cloudFlareEmail: "th.biabiany.dev@gmail.com",
     cloudFlareAuthKey: "126696776eccea97c410b5b001deafebf6bdd",
     mongodbPassword: "XmyABqJdssCfKqib",
-    mongo_uri: "mongodb+srv://claquetteuuuh:XmyABqJdssCfKqib@cluster0.fspow.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    mongo_uri: "mongodb+srv://claquetteuuuh:XmyABqJdssCfKqib@cluster0.fspow.mongodb.net/myVDatabase?retryWrites=true&w=majority"
   },
 
 }
