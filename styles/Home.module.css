@@ -1,9 +1,4 @@
 .container{
-    background-image: linear-gradient(
-        130deg,
-        hsl(43deg 100% 52%) 0%,
-        hsl(34deg 100% 48%) 50%,
-        hsl(23deg 100% 45%) 100%,
-        hsl(0deg 100% 41%) 100%);
+
     height: 100%;
 }
