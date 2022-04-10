@@ -9,9 +9,10 @@ const VideoContainer = () => {
     const [loading, setloading] = useState(true);
 
     useEffect(async () => {
-        await axios.get('/api/get-stream')
+        await axios.get('/api/mongo-stream')
         .then((res) => {
             setdata(res.data)
+            console.log(res.data);
         })
 
         setloading(false)
@@ -23,25 +24,17 @@ const VideoContainer = () => {
             {(loading == true)? <img className={styles.loading} src="/img/gif/loading.gif" alt="loading image" width={200} /> : console.log('loading ended')}
             {data.map((video) => (
                 
-                (video.meta.name)? <Video 
-                key={video.uid}
-                miniature={video.thumbnail}
-                title={video.meta.name}
-                channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
-                channelName="Lorem susu"
-                views="10M"
-                date="12/12/1212"
-                id={video.uid}
-            /> : <Video 
-            key={video.uid}
-            miniature={video.thumbnail}
-            title={video.uid}
-            channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
-            channelName="Lorem susu"
-            views="10M"
-            date="12/12/1212"
-            id={video.uid}
-        />
+                <Video 
+                    key={video.videoId}
+                    miniature={video.miniature}
+                    title={video.title}
+                    channelPicture={(video.channelPic)? video.channelPic : '/img/svg/random-user.jpg'}
+                    channelName={video.channel}
+                    views={video.views}
+                    date="12/12/1212"
+                    id={video.videoId}
+                
+                />
                 
             ))}
         </div>

@@ -1,0 +1,94 @@
+.LoginForm{
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.LoginForm h3{
+    font-size: clamp(18px, 2vw, 25px);
+    font-weight: 500;
+    position: relative;
+    letter-spacing: 1px;
+}
+.LoginForm h3::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: clamp(20px, 2vw ,28px);
+    left: 0;
+    bottom: 0;
+
+
+    background-image: linear-gradient(
+        130deg,
+        hsl(43deg 100% 52%) 0%,
+        hsl(34deg 100% 48%) 50%,
+        hsl(23deg 100% 45%) 100%,
+        hsl(0deg 100% 41%) 100%);
+}
+
+.LoginForm form .details{
+    display: flex;
+    
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.inputBox{
+    width: calc(100% / 2 -20px);
+}
+
+.inputBox input{
+    height: 35px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #CCC;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 3px;
+    transition: all .3s ease;
+    margin: 10px 0;
+}
+
+
+.inputBox input:focus,
+.inputBox input:valid{
+    border-color: #f58b00;
+}
+
+.button{
+    height: 45px;
+    margin: 45px 0;
+}
+.button input{
+    transition-duration: .3s;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: white;
+    
+    background-image: linear-gradient(
+        130deg,
+        hsl(43deg 100% 52%) 0%,
+        hsl(34deg 100% 48%) 50%,
+        hsl(23deg 100% 45%) 100%,
+        hsl(0deg 100% 41%) 100%);
+
+    border: none;
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button input:hover{
+    transition-duration: 0.3s;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

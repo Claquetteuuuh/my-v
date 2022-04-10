@@ -48,5 +48,7 @@ export default async function handler(req, res) {
         request(options, callback);
 
 
+    }else{
+        res.status(400).json({message: 'This routes only accept GET'})
     }
 }

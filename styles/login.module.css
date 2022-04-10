@@ -1,0 +1,17 @@
+.login{
+    height: 100%;
+    background-image: linear-gradient(
+  130deg,
+  hsl(43deg 100% 52%) 0%,
+  hsl(34deg 100% 48%) 36%,
+  hsl(23deg 100% 45%) 68%,
+  hsl(0deg 100% 41%) 100%
+);
+}
+.formContainer{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}

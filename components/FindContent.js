@@ -14,7 +14,7 @@ const FindContent = () => {
     const [find, setFind] = useState(false)
 
     useEffect(async () => {
-        await axios.get('/api/get-stream')
+        await axios.get('/api/mongo-stream')
         .then((res) => {
             setdata(res.data)
         })
@@ -27,25 +27,19 @@ const FindContent = () => {
         <div className={styles.findcontent}>
             {
                 data.map((video) => (
-                    (video.meta.name)? (video.meta.name.toLowerCase().includes(search.toLowerCase())? <Video 
-                    key={video.uid}
-                    miniature={video.thumbnail}
-                    title={video.meta.name}
-                    channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
-                    channelName="Lorem susu"
-                    views="10M"
-                    date="12/12/1212"
-                    id={video.uid}
-                />: false) : (video.uid.toLowerCase().includes(search.toLowerCase())? <Video 
-                    key={video.uid}
-                    miniature={video.thumbnail}
-                    title={video.uid}
-                    channelPicture="https://media.discordapp.net/attachments/892425478386876526/954940208795758672/image_1.png"
-                    channelName="Lorem susu"
-                    views="10M"
-                    date="12/12/1212"
-                    id={video.uid}
-                />: false)
+                (video.title.toLowerCase().includes(search.toLowerCase())? 
+                    <Video 
+                        key={video.videoId}
+                        miniature={video.miniature}
+                        title={video.title}
+                        channelPicture={video.channelPic}
+                        channelName={video.channel}
+                        views={video.views}
+                        date="12/12/1212"
+                        id={video.videoId}
+                    
+                    />
+                : false)
                         
                     
                 ))

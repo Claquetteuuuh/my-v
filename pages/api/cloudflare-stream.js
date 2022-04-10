@@ -13,6 +13,8 @@ export default async function handler(req, res) {
             // console.log(e.data.result)
             res.status(200).json(e.data.result)
         })
+    }else{
+        res.status(400).json({message: 'This routes only accept GET'})
     }
 
 }

@@ -1,5 +1,6 @@
 import request from "request";
 
+
 export default function handler(req, res) {
 
     if(req.method === 'POST'){
@@ -24,6 +25,10 @@ export default function handler(req, res) {
         };
 
         function getUrlCallback(error, response, body) {
+
+            const url = new URL(response.headers.location);
+            const id = url.pathname.split('/')[2]
+
             if (!error && response.statusCode == 201) {
                 // console.log(res);
                 let headers = Object.entries(response['headers']);
@@ -31,6 +36,10 @@ export default function handler(req, res) {
                     res.setHeader(header[0], header[1])
                 });
                 res.status(201).end()
+
+                const video = new Videos({
+
+                })
 
             }else{
                 console.log(body)
@@ -42,6 +51,8 @@ export default function handler(req, res) {
 
         request(options, getUrlCallback);
 
+    }else{
+        res.status(400).json({message: 'This routes only accept POST'})
     }
 }
   

@@ -9,7 +9,7 @@ export default async function handler(req, res){
     if(req.method === 'POST'){
 
         const login = async (userEmail, userPassword) => {
-            const thisUser = await User.findOne({userEmail})
+            const thisUser = await User.findOne({email: userEmail})
 
             if(thisUser){
                 const auth = await bcrypt.compare(userPassword, thisUser.password) // compare the password with the password Hashed
@@ -31,6 +31,7 @@ export default async function handler(req, res){
         const {email, password} = req.body;
 
         const user = await login(email, password)
+        console.log();
 
         if(user){
             const token = createToken(user.userId)
@@ -50,5 +51,7 @@ export default async function handler(req, res){
     
         
     
+    }else{
+        res.status(400).json({message: 'This routes only accept POST'})
     }
 }

@@ -1,10 +1,13 @@
 .Video{
+    background-color: white;
     min-width: 350px;
     width: 390px;
     min-height: 300px;
     height: 320px;
     margin: 5px 10px;
     overflow: hidden;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .miniature{
