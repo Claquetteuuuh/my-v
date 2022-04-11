@@ -32,7 +32,7 @@ const FindContent = () => {
                         key={video.videoId}
                         miniature={video.miniature}
                         title={video.title}
-                        channelPicture={video.channelPic}
+                        channelPicture={(video.channelPic)? video.channelPic : '/img/svg/random-user.jpg'}
                         channelName={video.channel}
                         views={video.views}
                         date="12/12/1212"

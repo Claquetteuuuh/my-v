@@ -40,7 +40,7 @@
     border-radius: 10px;
     width: 30%;
 }
-.input input{
+.input .text{
     font-size: 20px;
     height: 33px;
     width: 100%;
@@ -51,10 +51,10 @@
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-.input input::placeholder{
+.input .text::placeholder{
     font-size: 20px;
 }
-.input img{
+.submit{
     width: 33px;
     height: 33px;
     cursor: pointer;
