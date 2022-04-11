@@ -10,9 +10,10 @@ const Navbar = (props) => {
 
     useEffect(() => {
         axios.get('/api/get-picture').then(e => {
+            console.log(e);
             setuserData(e.data)
         }).catch(e =>{
-            
+            console.log(`error ${e}`);
         })
     }, []);
     
