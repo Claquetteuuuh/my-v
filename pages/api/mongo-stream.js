@@ -16,6 +16,7 @@ export default async function handler(req, res){
                         channel: user.username,
                         channelPic: user.picture,
                         description: video.description,
+                        date: video.date,
                         likes: video.likes,
                         views: video.views,
                         keywords: video.keywords

@@ -1,7 +1,7 @@
 import Videos from "./schemas/Videos"
 import dbConnect from '../../utils/dbConnect'
 import axios from 'axios'
-import jsonwebtoken from 'jsonwebtoken'
+import jwt_decode from 'jwt-decode'
 dbConnect(); 
 
 export default async function handler(req, res) {
@@ -16,15 +16,17 @@ export default async function handler(req, res) {
                     }
         }).then((cloudflareVideo) => {
             if(req.headers.cookie){
-                const infoCookie = atob(req.headers.cookie.split('.')[1])
-
+                const token = req.headers.cookie.split('=')[1]
+                const channelId = jwt_decode(token).id
+                
                 const video = new Videos({
                     cloudflareId: id,
                     title: title,
-                    channelId: JSON.parse(infoCookie).id,
+                    channelId: channelId,
                     miniature: (miniature)?miniature: cloudflareVideo.data.result.thumbnail,
                     description: description,
                     keywords: keywords,
+                    date: Date.now(),
                     views: 0,
                     likes: 0
                 })

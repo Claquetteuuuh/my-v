@@ -6,7 +6,7 @@ dbConnect()
 export default async function handler(req, res){
     if(req.method === 'GET'){
         if(req.headers.cookie){
-            let token = req.headers.cookie.split('=')[1]
+            const token = req.headers.cookie.split('=')[1]
             const {id } = jwt_decode(token)
 
             User.findOne({userId: id}).then(e => {

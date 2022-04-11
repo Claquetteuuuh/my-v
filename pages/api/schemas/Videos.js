@@ -19,6 +19,10 @@ const videoSchema = mongoose.Schema({
     description: {
         type: String,
     },
+    date: {
+        type: Date,
+        required: true,
+    },
     likes: {
         type: Number,
         required: true,

@@ -8,10 +8,21 @@ const VideoContainer = () => {
     const [data, setdata] = useState([]);
     const [loading, setloading] = useState(true);
 
+    const dateParser = (date) => {
+
+        let newDate = new Date(date).toLocaleDateString('gp-GP', {
+            year: "numeric",
+            month: 'numeric',
+            day: 'numeric',
+        })
+        return newDate
+    }
+
     useEffect(async () => {
         await axios.get('/api/mongo-stream')
         .then((res) => {
             setdata(res.data)
+            console.log(res.data);
         })
 
         setloading(false)
@@ -30,7 +41,7 @@ const VideoContainer = () => {
                     channelPicture={(video.channelPic)? video.channelPic : '/img/svg/random-user.jpg'}
                     channelName={video.channel}
                     views={video.views}
-                    date="12/12/1212"
+                    date={(video.date)? dateParser(video.date): '00/00/00'}
                     id={video.videoId}
                 
                 />
