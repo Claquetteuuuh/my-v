@@ -74,3 +74,8 @@
     cursor: pointer;
     margin-left: 10%;
 }
+
+.avatar{
+    border-radius: 50%;
+    cursor: pointer;
+}

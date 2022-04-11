@@ -16,8 +16,10 @@ export default async function handler(req, res){
                 if(auth){
                     return thisUser
                 }
+                res.status(400).json({error: "incorrect password"})
                 throw Error('incorrect password')
             }
+            res.status(400).json({error: "incorrect email"})
             throw Error('incorrect email')
         }
 

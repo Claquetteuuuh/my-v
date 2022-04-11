@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../styles/Navbar.module.css'
 import Link from 'next/link';
+import axios from 'axios'
 
 const Navbar = (props) => {
     
     const [formValue, setFormValue] = useState('');
+    const [userData, setuserData] = useState();
+
+    useEffect(() => {
+        axios.get('/api/get-picture').then(e => {
+            setuserData(e.data)
+        }).catch(e =>{
+            
+        })
+    }, []);
     
     return (
         <div className={styles.navbar}>
@@ -16,7 +26,7 @@ const Navbar = (props) => {
                 <Link href={`/research?search=${formValue}`}><img src="/img/svg/search-outline.svg" alt="search" /></Link>
             </div>
             <div className={styles.right}>
-                {(props.avatar)? <img src={`${props.avatar}`} height={50} width={50} />: <Link href="/login"><img className={styles.loginButton} src="/img/svg/login.svg" height={33} width={33} /></Link>}
+                {(userData)? <Link href={`/channel?name=${userData.channel}`}><img src={(userData.picture)? userData.picture: '/img/svg/random-user.jpg' } className={styles.avatar} height={50} width={50} /></Link>: <Link href="/login"><img className={styles.loginButton} src="/img/svg/login.svg" height={33} width={33} /></Link>}
                 <Link href="/post-video"><img className={styles.addButton} src="/img/svg/add-button.svg" height={33} width={33} /></Link>
             </div>
         </div>
