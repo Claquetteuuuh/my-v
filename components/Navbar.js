@@ -10,7 +10,6 @@ const Navbar = (props) => {
 
     useEffect(() => {
         axios.get('/api/get-picture').then(e => {
-            console.log(e);
             setuserData(e.data)
         }).catch(e =>{
             console.log(`error ${e}`);
@@ -19,7 +18,6 @@ const Navbar = (props) => {
     
     const formSub = (e) => {
         e.preventDefault()
-        console.log('ok');
         window.location.href = `/research?search=${formValue}`
     }
 
