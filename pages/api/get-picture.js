@@ -5,8 +5,8 @@ dbConnect()
 export default async function handler(req, res){
     if(req.method === 'GET'){
         if(req.headers.cookie){
-            const id = JSON.parse(atob(req.headers.cookie.split('.')[1])).id
-            res.status(200).json({message: id})
+            res.status(200).json({message: 'cookie'})
+            // const id = JSON.parse(atob(req.headers.cookie.split('.')[1])).id
 
             // User.findOne({userId: id}).then(e => {
             //     res.status(200).json({picture: e.picture, channel: e.username})
