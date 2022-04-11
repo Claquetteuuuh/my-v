@@ -15,5 +15,7 @@ export default async function handler(req, res){
         }else{
             res.status(403).json({error: 'not connected'})
         }
+    }else{
+        res.status(200).json({message: 'this routes only accept GET'})
     }
 }
