@@ -3,8 +3,12 @@ import Player from '../components/Player';
 import styles from '../styles/ViewContent.module.css'
 import Video from '../components/Video'
 import axios from 'axios'
+import { useRouter } from 'next/router';
 
 const ViewContent = () => {
+
+    const router = useRouter()
+    const {id} = router.query
         
     const [data, setdata] = useState([]);
 
@@ -36,6 +40,7 @@ const ViewContent = () => {
                 {
                     data.map((video) => (
                 
+                        (id != video.videoIdid)?
                         <div key={video.videoId} className={styles.uniqueVideo}>
                             <Video 
                                 miniature={video.miniature}
@@ -48,7 +53,7 @@ const ViewContent = () => {
                             
                             />
                         </div>
-                    
+                        : false
                     )).reverse()
                 }
                 </div>
