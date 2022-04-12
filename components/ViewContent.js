@@ -36,9 +36,8 @@ const ViewContent = () => {
                 {
                     data.map((video) => (
                 
-                        <div className={styles.uniqueVideo}>
+                        <div key={video.videoId} className={styles.uniqueVideo}>
                             <Video 
-                                key={video.videoId}
                                 miniature={video.miniature}
                                 title={video.title}
                                 channelPicture={(video.channelPic)? video.channelPic : '/img/svg/random-user.jpg'}
