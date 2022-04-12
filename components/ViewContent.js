@@ -40,7 +40,7 @@ const ViewContent = () => {
                 {
                     data.map((video) => (
                 
-                        (id != video.videoIdid)?
+                        (id != video.videoId)?
                         <div key={video.videoId} className={styles.uniqueVideo}>
                             <Video 
                                 miniature={video.miniature}
