@@ -9,7 +9,7 @@ export default async function handler(req, res){
     if(req.method === 'POST'){
 
         const login = async (userEmail, userPassword) => {
-            const thisUser = await User.findOne({email: userEmail})
+            const thisUser = await User.findOne({email: userEmail.toLowerCase()})
 
             if(thisUser){
                 const auth = await bcrypt.compare(userPassword, thisUser.password) // compare the password with the password Hashed

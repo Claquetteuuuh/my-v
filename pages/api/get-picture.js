@@ -1,13 +1,13 @@
 import dbConnect from "../../utils/dbConnect"
 import User from './schemas/User'
-import jwt_decode from 'jwt-decode'
+import jwtDecode from 'jwt-decode'
 dbConnect()
 
 export default async function handler(req, res){
     if(req.method === 'GET'){
         if(req.headers.cookie){
             const token = req.headers.cookie.split('=')[1]
-            const {id } = jwt_decode(token)
+            const {id } = jwtDecode(token)
 
             User.findOne({userId: id}).then(e => {
                 res.status(200).json({picture: e.picture, channel: e.username})

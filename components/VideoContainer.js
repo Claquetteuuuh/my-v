@@ -22,7 +22,6 @@ const VideoContainer = () => {
         await axios.get('/api/mongo-stream')
         .then((res) => {
             setdata(res.data)
-            console.log(res.data);
         })
 
         setloading(false)

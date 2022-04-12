@@ -15,11 +15,11 @@ export default async function handler(req, res) {
                     userId: users.length + 1,
                     username: req.body.username,
                     picture: req.body.picture,
-                    email: req.body.email,
+                    email: req.body.email.toLowerCase(),
                     password: hash
                 })
                 user.save().then(() => { // save user in db
-                    User.findOne({email: req.body.email}).then((thisUser) => {
+                    User.findOne({email: req.body.email.toLowerCase()}).then((thisUser) => {
                         const maxAge = 18000 // set to 5 hours (seconds)
                         const createToken = (id) =>{
                             return jsonwebtoken.sign({id}, 'net ninja secret', {

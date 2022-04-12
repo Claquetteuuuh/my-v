@@ -32,7 +32,7 @@ const Navbar = (props) => {
             </form>
             <div className={styles.right}>
                 {(userData)? <Link href={`/channel?name=${userData.channel}`}><img src={(userData.picture)? userData.picture: '/img/svg/random-user.jpg' } className={styles.avatar} height={50} width={50} /></Link>: <Link href="/login"><img className={styles.loginButton} src="/img/svg/login.svg" height={40} width={40} /></Link>}
-                {(userData)? <Link href="/post-video"><img className={styles.addButton} src="/img/svg/add-button.svg" height={40} width={40} /></Link>: false}
+                {(userData)? <Link href="/post-video"><img className={styles.addButton} src="/img/svg/add-button.svg" height={50} width={50} /></Link>: false}
             </div>
         </div>
     );

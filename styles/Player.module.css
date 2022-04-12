@@ -1,6 +1,17 @@
 .player{
-    margin-top: 65px;
     height: 100vh;
+}
+.player div{
+    width: 50%;
+}
+.player img{
+    z-index: -1;
+}
+.player iframe{
+    background-color: black;
+    z-index: 3;
+    height: clamp(250px, calc(60vw/1.6), 580px);
+    width: clamp(414px, 60vw, 1100px);
 }
 
 .loading{
