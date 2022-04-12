@@ -13,7 +13,6 @@ const channel = () => {
     const router = useRouter()
     const {name} = router.query
 
-
     useEffect(() => {
         axios.post('/api/isuser', {
             channel: name
@@ -25,8 +24,8 @@ const channel = () => {
             }
         })
     }, []);
-    
-    return(
+
+    return (
         <div className={styles.channel}>
             {
                 (isUser)?
@@ -41,11 +40,9 @@ const channel = () => {
                         <Navbar />
                         <p>Not this user</p>
                     </div>
-            }        
-            
-        </div>     
-       
-    )
+            }
+        </div>
+    );
 };
 
 export default channel;
