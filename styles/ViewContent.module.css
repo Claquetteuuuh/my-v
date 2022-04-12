@@ -1,0 +1,11 @@
+.content{
+    padding: 0 4%;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.uniqueVideo{
+    padding: 2% 0;
+}
