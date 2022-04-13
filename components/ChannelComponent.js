@@ -15,7 +15,6 @@ const ChannelComponent = () => {
         axios.post('/api/isuser', {
             channel: name
         }).then(e => {
-            console.log(e)
             if(e.data.isUser){
                 setchannel(e.data)
                 setisUser(true)
@@ -28,7 +27,7 @@ const ChannelComponent = () => {
                 (isUser)?
                     // is it is the user
                     <div>
-                        <ConnectedUser channel={channel.username} picture={channel.picture} email={channel.email} />
+                        <ConnectedUser userid={channel.userId} username={channel.username} picture={channel.picture} userEmail={channel.email} />
                     </div>
                 :
                 // if not the user

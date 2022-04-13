@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         bcrypt.hash(req.body.password, 10).then((hash) => { // create a password hash with bcrypt
             User.find({}).then((users) => { // get all users to create an id
                 const user = new User({
-                    userId: users.length + 1,
+                    userId: Number(users[users.length - 1].userId) + 1,
                     username: req.body.username,
                     picture: req.body.picture,
                     email: req.body.email.toLowerCase(),

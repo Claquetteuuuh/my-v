@@ -1,6 +1,5 @@
 import request from "request";
 
-
 export default function handler(req, res) {
 
     if(req.method === 'POST'){
@@ -37,9 +36,6 @@ export default function handler(req, res) {
                 });
                 res.status(201).end()
 
-                const video = new Videos({
-
-                })
 
             }else{
                 console.log(body)

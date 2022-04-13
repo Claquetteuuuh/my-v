@@ -1,0 +1,57 @@
+.connectedUser{
+    min-height: 40vh;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.left{
+    margin-right: 3%;
+}
+.left .imgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 36px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    overflow: hidden;
+
+}
+.imgContainer img{
+    height: 300px;
+}
+.userInfo{
+    margin-left: 3%;
+}
+
+.userInfo form{
+    
+    width: 400px;
+    font-size: 18px;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+}
+.userInfo form label{
+    margin-right: 2%;
+}
+
+.userInfo form input:nth-child(2){
+    padding: 0 2%;
+    border-radius: 7px;
+    outline: none;
+    background-color: #f3f3f3;
+    border: none;
+    height: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    max-width: 185px;
+}
+.userInfo div:nth-child(1) form input:nth-child(2){
+    max-width: 225px;
+    width: 225px;
+}
+
