@@ -12,6 +12,9 @@
     transform: translate(-50%);
     width: 30%;
 }
+.slide{
+    overflow: hidden;
+}
 
 .infoVideo{
     width: 100%;
@@ -47,5 +50,13 @@
 @media screen and (max-width: 643px){
     .swiperContainer{
         width: 80%;
+    }
+    
+}
+@media screen and (max-width: 450px) {
+    .slide img{
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
     }
 }
