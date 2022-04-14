@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/LoginForm.module.css'
 import axios from 'axios'
+import Link from 'next/link'
 
 const LoginForm = () => {
     const [email, setemail] = useState('');
@@ -36,6 +37,7 @@ const LoginForm = () => {
                 </div>
                 <div className={styles.button}>
                     <input type="submit" value='Sign In' />
+                    <Link href={'/signup'}><p>any account?</p></Link>
                 </div>
             </form>
         </div>

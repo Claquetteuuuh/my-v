@@ -7,7 +7,7 @@ dbConnect();
 
 export default async function handler(req, res) {
     if(req.method === 'POST'){
-        // const { username, email, password } = req.body
+        // const { username, email, password, picture } = req.body
 
         bcrypt.hash(req.body.password, 10).then((hash) => { // create a password hash with bcrypt
             User.find({}).then((users) => { // get all users to create an id

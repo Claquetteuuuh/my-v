@@ -1,4 +1,4 @@
-.LoginForm{
+.RegisterForm{
     width: 100%;
     max-width: 500px;
     background-color: #fff;
@@ -7,13 +7,13 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
-.LoginForm h3{
+.RegisterForm h3{
     font-size: clamp(18px, 2vw, 25px);
     font-weight: 500;
     position: relative;
     letter-spacing: 1px;
 }
-.LoginForm h3::before{
+.RegisterForm h3::before{
     content: '';
     position: absolute;
     height: 3px;
@@ -30,7 +30,7 @@
         hsl(0deg 100% 41%) 100%);
 }
 
-.LoginForm form .details{
+.RegisterForm form .details{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
