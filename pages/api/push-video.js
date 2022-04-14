@@ -27,8 +27,8 @@ export default async function handler(req, res) {
                     description: description,
                     keywords: keywords,
                     date: Date.now(),
-                    views: 0,
-                    likes: 0
+                    views: [],
+                    likes: []
                 })
         
                 video.save().then(() => {

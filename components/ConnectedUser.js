@@ -2,13 +2,32 @@ import React, {useState, useEffect} from 'react';
 import styles from '../styles/ConnectedUser.module.css'
 import axios from 'axios'
 
-const ConnectedUser = ({userEmail, picture, username, userId}) => {
+const ConnectedUser = ({userEmail, picture, username, userid}) => {
 
     const [email, setemail] = useState(userEmail);
     const [thisUsername, setthisUsername] = useState(username);
 
-    const views = 999
-    const likes = 40
+    const [views, setviews] = useState(0);
+    const [likes, setlikes] = useState(0);
+
+    useEffect(() => {
+        axios.post('/api/get-video-of', {
+            userId: userid
+        }).then(e => {
+            let viewCount = 0
+            let likesCount = 0
+            e.data.videos.forEach(video => {
+                viewCount = viewCount + video.views.length
+                likesCount = likesCount + video.likes.length
+            });
+            setviews(viewCount)
+            setlikes(likesCount)
+        })
+
+
+
+    }, []);
+
 
     const updateUserInfo = (e, type) => {
         e.preventDefault()

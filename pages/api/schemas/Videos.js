@@ -24,11 +24,11 @@ const videoSchema = mongoose.Schema({
         required: true,
     },
     likes: {
-        type: Number,
+        type: Array,
         required: true,
     },
     views: {
-        type: Number,
+        type: Array,
         required: true,
     },
     keywords: {

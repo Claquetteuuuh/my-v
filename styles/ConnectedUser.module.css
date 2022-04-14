@@ -22,8 +22,9 @@
 
 }
 .imgContainer img{
-    height: 300px;
-    
+    min-height: 300px;
+    max-height: 350px;
+    min-width: 300px;
 }
 .infoInboxContainer{
     margin-left: 10%;

@@ -44,8 +44,8 @@ const ConnectedVideo = ({userid}) => {
                                         <div className={styles.infoVideo}>
                                             <Link href={`/view?id=${video.cloudflareId}`}><h4>{video.title}</h4></Link>
                                             <div>
-                                                <p><img src="/img/svg/heart-outline.svg" width={25} alt="heart" /> {video.likes} Likes</p>
-                                                <p><img src="/img/svg/eye-outline.svg" width={25} alt="eye" /> {video.views} Views</p>
+                                                <p><img src="/img/svg/heart-outline.svg" width={25} alt="heart" /> {video.likes.length} Likes</p>
+                                                <p><img src="/img/svg/eye-outline.svg" width={25} alt="eye" /> {video.views.length} Views</p>
                                             </div>
                                         </div>
                                     </SwiperSlide>
