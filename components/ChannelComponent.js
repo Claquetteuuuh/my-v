@@ -4,11 +4,13 @@ import { useRouter } from 'next/router';
 import ConnectedUser from '../components/ConnectedUser';
 import styles from '../styles/ChannelComponent.module.css'
 import ConnectedVideo from './ConnectedVideo';
+import NotConnectedUser from './NotConnectedUser';
+import NotConnectedVideo from './NotConnectedVideo';
 
 const ChannelComponent = () => {
 
     const [isUser, setisUser] = useState(false);
-    const [channel, setchannel] = useState();
+    const [channel, setchannel] = useState({});
 
     const router = useRouter()
     const queryKey = 'name';
@@ -21,6 +23,8 @@ const ChannelComponent = () => {
             if(e.data.isUser){
                 setchannel(e.data)
                 setisUser(true)
+            }else{
+                setchannel(e.data)
             }
         })
     }, []);
@@ -30,15 +34,17 @@ const ChannelComponent = () => {
                 (isUser)?
                     // is it is the user
                     <div className={styles.connectedContainer}>
-                        <ConnectedUser userid={channel.userId} username={channel.username} picture={channel.picture} userEmail={channel.email} />
+                        <ConnectedUser userid={channel.userId} username={channel.username} picture={(channel.picture)? channel.picture: '/img/svg/random-user.jpg'} userEmail={channel.email} />
                         <div className={styles.trait}></div>
                         <ConnectedVideo userid={channel.userId} username={channel.username} userEmail={channel.email} />
                     </div>
                 :
-                // if not the user
-                    <div>
-                        <p>Not this user</p>
-                   </div>
+                    // if not the user
+                    <div className={styles.notConnectedContainer}>
+                        <NotConnectedUser username={name} picture={(channel.picture)? channel.picture: '/img/svg/random-user.jpg'} />
+                        <div className={styles.trait}></div>
+                        <NotConnectedVideo username={name} />
+                    </div>
             }
         </div>
     );

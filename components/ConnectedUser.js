@@ -22,9 +22,9 @@ const ConnectedUser = ({userEmail, picture, username, userid}) => {
             });
             setviews(viewCount)
             setlikes(likesCount)
+        }).catch(err => {
+            console.log(err);
         })
-
-
 
     }, []);
 

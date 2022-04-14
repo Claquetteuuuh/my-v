@@ -8,18 +8,18 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Link from 'next/link';
 
-const ConnectedVideo = ({userid}) => {
-    
+const NotConnectedVideo = ({username}) => {
+
     const [videos, setvideos] = useState([]);
 
     useEffect( async () => {
         await axios.post('/api/get-video-of', {
-            userId: userid
+            username: username
         }).then(async (e) => {
             setvideos(e.data.videos)
         })
     }, []);
-    
+
     return (
         <div className={styles.ConnectedVideo}>
             <h3>Videos</h3>
@@ -59,4 +59,4 @@ const ConnectedVideo = ({userid}) => {
     );
 };
 
-export default ConnectedVideo;
+export default NotConnectedVideo;

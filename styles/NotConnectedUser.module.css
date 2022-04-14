@@ -1,0 +1,28 @@
+.notConnectedUser{
+    height: 40%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.left{
+    margin-right: 3%;
+}
+.left .imgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    border-radius: 36px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    overflow: hidden;
+    margin-bottom: 30px;
+
+}
+.imgContainer img{
+    min-height: 300px;
+    max-height: 350px;
+    min-width: 300px;
+}
