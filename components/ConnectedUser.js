@@ -18,7 +18,7 @@ const ConnectedUser = ({userEmail, picture, username, userId}) => {
                     oldEmail: userEmail,
                     newEmail: email
                 }).then(e => {
-                    window.location.href = `/channel?name=${username}`
+                    window.location.href = `/`
                 }).catch(e => {
                     console.log(e)
                 })
@@ -29,7 +29,7 @@ const ConnectedUser = ({userEmail, picture, username, userId}) => {
                     oldUsername: username,
                     newUsername: thisUsername
                 }).then(e => {
-                    window.location.href = `/channel?name=${thisUsername}`
+                    window.location.href = `/`
                 }).catch(e => {
                     console.log(e)
                 })
