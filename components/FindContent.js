@@ -7,7 +7,8 @@ import { useRouter } from 'next/router';
 const FindContent = () => {
 
     const router = useRouter()
-    const {search} = router.query
+    const queryKey = 'search'
+    const search = router.query[queryKey] || router.asPath.match(new RegExp(`[&?]${queryKey}=(.*)(&|$)`))
 
     const [data, setdata] = useState([]);
     const [loading, setloading] = useState(true);

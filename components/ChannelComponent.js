@@ -9,10 +9,11 @@ const ChannelComponent = () => {
     const [channel, setchannel] = useState();
 
     const router = useRouter()
-    const {name} = router.query
+    const queryKey = 'name';
+    const name = router.query[queryKey] || router.asPath.match(new RegExp(`[&?]${queryKey}=(.*)(&|$)`))
 
-    useEffect(() => {
-        axios.post('/api/isuser', {
+    useEffect( async () => {
+        await axios.post('/api/isuser', {
             channel: name
         }).then(e => {
             if(e.data.isUser){
@@ -33,7 +34,7 @@ const ChannelComponent = () => {
                 // if not the user
                     <div>
                         <p>Not this user</p>
-                    </div>
+                   </div>
             }
         </div>
     );
