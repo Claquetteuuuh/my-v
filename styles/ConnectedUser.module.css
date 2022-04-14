@@ -23,25 +23,28 @@
 .imgContainer img{
     height: 300px;
 }
-.userInfo{
-    margin-left: 3%;
+.infoInboxContainer{
+    margin-left: 10%;
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
-
 .userInfo form{
     
-    width: 400px;
+    width: fit-content;
     font-size: 18px;
     font-weight: bolder;
     display: flex;
     align-items: center;
 }
 .userInfo form label{
-    margin-right: 2%;
+    padding-right: 5px;
 }
 
 .userInfo form input:nth-child(2){
     padding: 0 2%;
-    border-radius: 7px;
+    border-radius: 3px;
     outline: none;
     background-color: #f3f3f3;
     border: none;
@@ -49,9 +52,35 @@
     font-weight: 500;
     font-size: 16px;
     max-width: 185px;
+    transition: .2s all ease;
 }
-.userInfo div:nth-child(1) form input:nth-child(2){
+.userInfo form input:nth-child(2):focus{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.userInfo form input:nth-child(3){
+    margin-left: 5px;
+}
+.userInfo div div:nth-child(1) form input:nth-child(2){
     max-width: 225px;
     width: 225px;
 }
+.userInfo button{
+    text-decoration: underline;
+    color: #004CA5;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    background: none;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 20px;
+}
 
+.counter{
+    margin-left: 10%;
+    font-weight: 700;
+    font-size: 18px;
+}
+.counter p span{
+    font-weight: 400;
+}
