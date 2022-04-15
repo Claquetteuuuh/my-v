@@ -6,6 +6,7 @@ import styles from '../styles/ChannelComponent.module.css'
 import ConnectedVideo from './ConnectedVideo';
 import NotConnectedUser from './NotConnectedUser';
 import NotConnectedVideo from './NotConnectedVideo';
+import Head from 'next/head'
 
 const ChannelComponent = () => {
 
@@ -30,6 +31,13 @@ const ChannelComponent = () => {
     }, []);
     return (
         <div className={styles.ChannelComponent}>
+
+            <Head >
+                <title>{`MyV - ${name}`}</title>
+                <meta name='description' content={`info on ${name}`}/>
+                <link rel="icon" href="/img/logos/logo-black.png" />
+            </Head>
+
             {
                 (isUser)?
                     // is it is the user

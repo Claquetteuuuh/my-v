@@ -4,11 +4,13 @@ import styles from '../styles/ViewContent.module.css'
 import Video from '../components/Video'
 import axios from 'axios'
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const ViewContent = () => {
 
     const router = useRouter()
-    const {id} = router.query
+    const queryKey = 'id';
+    const id = router.query[queryKey] || router.asPath.match(new RegExp(`[&?]${queryKey}=(.*)(&|$)`))
         
     const [data, setdata] = useState([]);
 
@@ -33,6 +35,13 @@ const ViewContent = () => {
 
     return (
         <div className={styles.content}>
+            <Head>
+                <title>MyV | Watch video </title>
+                <meta name="description" content={`watch ${id}`} />
+                <link rel="icon" href="/img/logos/logo-black.png" />
+                {/* <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></link> */}
+            </Head>
+
                 <div className={styles.videoInfo}>
                     <Player />
                 </div>
