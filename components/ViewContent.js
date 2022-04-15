@@ -30,6 +30,15 @@ const ViewContent = () => {
             setdata(res.data)
         })
 
+        await axios.post('/api/add-view-or-like', {
+            videoId: id,
+            type: 'view'
+        }).then(res => {
+            console.log(res.data.message)
+        }).catch(err =>{
+            console.log(err)
+        })
+
 
     }, [])
 
