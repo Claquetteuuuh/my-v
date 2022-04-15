@@ -35,14 +35,14 @@ const ChannelComponent = () => {
                     // is it is the user
                     <div className={styles.connectedContainer}>
                         <ConnectedUser userid={channel.userId} username={channel.username} picture={(channel.picture)? channel.picture: '/img/svg/random-user.jpg'} userEmail={channel.email} />
-                        <div className={styles.trait}></div>
+                        <div className={styles.traitConnected}></div>
                         <ConnectedVideo userid={channel.userId} username={channel.username} userEmail={channel.email} />
                     </div>
                 :
                     // if not the user
                     <div className={styles.notConnectedContainer}>
                         <NotConnectedUser username={name} picture={(channel.picture)? channel.picture: '/img/svg/random-user.jpg'} />
-                        <div className={styles.trait}></div>
+                        <div className={styles.traitNonConnected}></div>
                         <NotConnectedVideo username={name} />
                     </div>
             }

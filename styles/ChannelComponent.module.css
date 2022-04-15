@@ -2,7 +2,16 @@
     height: 100%;
 }
 
-.trait{
+.traitConnected{
+    width: 60%;
+    height: 5px;
+    background-color: #00000030;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+}
+.traitNonConnected{
     width: 60%;
     height: 5px;
     background-color: #00000030;
@@ -13,7 +22,10 @@
 }
 
 @media screen and (max-width: 643px) {
-    .trait{
+    .traitConnected{
         margin-top: 300px;
+    }
+    .traitNonConnected{
+        margin-top: 30px;
     }
 }
