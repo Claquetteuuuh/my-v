@@ -7,13 +7,16 @@ import { useRouter } from 'next/router';
 const Research = () => {
 
     const router = useRouter()
-    const {search} = router.query
+    const queryKey = 'search';
+    const search = router.query[queryKey] || router.asPath.match(new RegExp(`[&?]${queryKey}=(.*)(&|$)`))
+
 
     return (
         <div>
             <Head >
                 <title>{`MyV - Result for ${search}`}</title>
                 <meta name='description' content={`result for ${search}`}/>
+                <link rel="icon" href="/img/logos/logo-black.png" />
             </Head>
 
             <Navbar />
