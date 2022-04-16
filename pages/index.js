@@ -10,10 +10,9 @@ export default function Home() {
         <title>MyV | Home</title>
         <meta name="description" content="regarder des videos en ligne" />
         <link rel="icon" href="/img/logos/logo-black.png" />
-        {/* <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></link> */}
       </Head>
 
-      <Navbar avatar="" />
+      <Navbar/>
       <VideoContainer />
     </div>
   )

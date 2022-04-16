@@ -14,13 +14,16 @@ export default async function handler(req, res){
                 if(id == user.userId){
                     res.status(200).json({isUser: true, picture: user.picture, userId: user.userId, email: user.email, username: user.username})
                 }else{
-                    res.status(200).json({picture: user.picture})
+                    res.status(200).json({username: user.username, picture: user.picture})
                 }
             }else{
                 res.status(200).json({message: 'any account name'})
             }
         }else{
-            res.status(200).json({message: 'your not connected'})
+            const {channel} = req.body
+            const user = await User.findOne({username: channel})
+            res.status(200).json({username: user.username, picture: user.picture})
+            
         }
     }else{
         res.status(400).json({message: "this route only accept post request"})
