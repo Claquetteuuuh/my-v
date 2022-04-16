@@ -27,6 +27,11 @@ export default async function handler(req, res){
 
         const maxAge = 604800 // set to 1week (seconds)
         const createToken = (id) =>{
+            const log = new Log({
+                message: `New token generated for id ${id}`
+            })
+            log.save()
+
             return jsonwebtoken.sign({id}, 'net ninja secret', {
                 expiresIn: maxAge
             })
