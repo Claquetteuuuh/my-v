@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from '../styles/LoginForm.module.css'
 import axios from 'axios'
 import Link from 'next/link'
+import gsap from 'gsap';
 
 const LoginForm = () => {
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
+
+    const inputSub = useRef(null)
 
     const submitForm = async (e) =>{
         e.preventDefault()
@@ -15,7 +18,18 @@ const LoginForm = () => {
         }).then(e => {
             window.location.href = '/'
         }).catch(e => {
-            console.log('Incorrect email or password')
+            console.log(e)
+            gsap.to(inputSub.current, {
+                background: 'red',
+                value: 'Wrong Email / password',
+                duration: 0.3
+            })
+            gsap.to(inputSub.current, {
+                delay: 2,
+                background: "linear-gradient(130deg,hsl(43deg 100% 52%) 0%,hsl(34deg 100% 48%) 50%,hsl(23deg 100% 45%) 100%,hsl(0deg 100% 41%) 100%)",
+                value: 'Sign in',
+            })
+            // inputSub.current.style.background = 'red'
         })
     }
 
@@ -36,7 +50,7 @@ const LoginForm = () => {
                     
                 </div>
                 <div className={styles.button}>
-                    <input type="submit" value='Sign In' />
+                    <input ref={inputSub} type="submit" value='Sign in' />
                     <Link href={'/signup'}><p>want to create an account?</p></Link>
                 </div>
             </form>

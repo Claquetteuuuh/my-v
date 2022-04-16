@@ -11,38 +11,43 @@ export default async function handler(req, res){
             const { id } = jwtDecode(token)
 
             const user = await User.findOne({_id: id})
-            const video = await Video.findOne({cloudflareId: videoId})
-            const username = user.username
+            if(user){
+                const video = await Video.findOne({cloudflareId: videoId})
+                const userId = id
 
-            switch (type) {
-                case 'like':
+                switch (type) {
+                    case 'like':
 
-                    const likes = video.likes
-                    
-                    if(!likes.includes(username)){
-                        likes.push(username)
-                        await Video.findOneAndUpdate({cloudflareId: videoId}, {likes: likes})
-                        res.status(201).json({message: `${username} was added to ${videoId}'s likes list with success`})
-                    }else{
-                        res.status(200).json({message: `${username} is already in ${videoId}'s likes list`})
-                    }
-                    
-                    break;
-                    
-                    case 'view':
+                        const likes = video.likes
                         
-                        const views = video.views
-                        
-                        if(!views.includes(username)){
-                            views.push(username)
-                            await Video.findOneAndUpdate({cloudflareId: videoId}, {views: views})
-                            res.status(201).json({message: `${username} was added to ${videoId}'s views list with success`})
+                        if(!likes.includes(userId)){
+                            likes.push(userId)
+                            await Video.findOneAndUpdate({cloudflareId: videoId}, {likes: likes})
+                            res.status(201).json({message: `${userId} was added to ${videoId}'s likes list with success`})
                         }else{
-                            res.status(200).json({message: `${username} is already in ${videoId}'s views list`})
+                            res.status(200).json({message: `${userId} is already in ${videoId}'s likes list`})
                         }
-    
-                    break
+                        
+                        break;
+                        
+                        case 'view':
+                            
+                            const views = video.views
+                            
+                            if(!views.includes(userId)){
+                                views.push(userId)
+                                await Video.findOneAndUpdate({cloudflareId: videoId}, {views: views})
+                                res.status(201).json({message: `${userId} was added to ${videoId}'s views list with success`})
+                            }else{
+                                res.status(200).json({message: `${userId} is already in ${videoId}'s views list`})
+                            }
+        
+                        break
+                }
+            }else{
+                res.status(400).json({error: 'this id dont exist in db'})
             }
+            
 
         }else{
             res.status(403).json({error: 'not connected'})
