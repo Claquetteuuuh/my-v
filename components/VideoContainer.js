@@ -8,6 +8,8 @@ const VideoContainer = () => {
     const [data, setdata] = useState([]);
     const [loading, setloading] = useState(true);
 
+    let listSkeletton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     const dateParser = (date) => {
 
         let newDate = new Date(date).toLocaleDateString('fr-FR', {
@@ -30,7 +32,11 @@ const VideoContainer = () => {
 
     return (
         <div className={styles.VideoContainer}>
-            {(loading == true)? <img className={styles.loading} src="/img/gif/loading.gif" alt="loading image" width={200} /> : console.log('loading ended')}
+            {(loading == true)? 
+                listSkeletton.map((skeletton) => (
+                    <img className={styles.skeletton} src='/img/svg/skeletton.svg' alt={`skeletton ${skeletton}`} />
+                ))
+            : console.log('loading ended')}
             {data.map((video) => (
                 
                 <Video 
