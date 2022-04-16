@@ -1,4 +1,5 @@
 import User from './schemas/User'
+import Logs from './schemas/Logs'
 import dbConnect from '../../utils/dbConnect'
 import bcrypt from 'bcrypt'
 import jsonwebtoken from 'jsonwebtoken'
@@ -21,6 +22,11 @@ export default async function handler(req, res) {
                     User.findOne({email: req.body.email.toLowerCase()}).then((thisUser) => {
                         const maxAge = 18000 // set to 5 hours (seconds)
                         const createToken = (id) =>{
+                            const log = new Logs({
+                                message: `New token created for id : ${id}`,
+                                date: Date.now()
+                            })
+                            log.save()
                             return jsonwebtoken.sign({id}, 'net ninja secret', {
                                 expiresIn: maxAge
                             })
@@ -29,6 +35,11 @@ export default async function handler(req, res) {
                         const token = createToken(thisUser._id)
                         res.setHeader("Set-Cookie", serialize('token', token, {path: "/", httpOnly: true, maxAge: maxAge})) // set cookie in the header because of nextjs
                         
+                        const log = new Logs({
+                            message: `New user : ${thisUser.username} with id: ${thisUser._id}`,
+                            date: Date.now()
+                        })
+                        log.save()
                         res.status(201).json({user: thisUser._id})
                     }).catch((err) => console.log(err))
                     

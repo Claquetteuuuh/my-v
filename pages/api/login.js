@@ -3,6 +3,7 @@ import dbConnect from '../../utils/dbConnect'
 import bcrypt from 'bcrypt'
 import jsonwebtoken from 'jsonwebtoken'
 import {serialize} from 'cookie'
+import requestIp from 'request-ip'
 dbConnect(); 
 
 export default async function handler(req, res){
@@ -43,7 +44,7 @@ export default async function handler(req, res){
             // })
             res.setHeader("Set-Cookie", serialize('token', token, {path: "/", httpOnly: true, maxAge: maxAge})) // set cookie in the header because of nextjs
             
-            res.status(201).json({user: user._id})
+            res.status(201).json({user: user._id, ip: requestIp.getClientIp(req)})
 
         }else{
             res.status(400).json({message: 'error'})

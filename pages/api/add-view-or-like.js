@@ -1,6 +1,8 @@
 import Video from './schemas/Videos'
 import User from './schemas/User'
+import Log from './schemas/Logs'
 import jwtDecode from 'jwt-decode';
+
 
 export default async function handler(req, res){
     if(req.method === 'POST'){
@@ -22,7 +24,14 @@ export default async function handler(req, res){
                         
                         if(!likes.includes(userId)){
                             likes.push(userId)
-                            await Video.findOneAndUpdate({cloudflareId: videoId}, {likes: likes})
+                            const video = await Video.findOneAndUpdate({cloudflareId: videoId}, {likes: likes})
+                            
+                            const log = new Log({
+                                message: `New like of id: ${userId} in video: ${video._id}`,
+                                date: Date.now()
+                            })
+                            await log.save()
+                            
                             res.status(201).json({message: `${userId} was added to ${videoId}'s likes list with success`})
                         }else{
                             res.status(200).json({message: `${userId} is already in ${videoId}'s likes list`})
@@ -36,7 +45,14 @@ export default async function handler(req, res){
                             
                             if(!views.includes(userId)){
                                 views.push(userId)
-                                await Video.findOneAndUpdate({cloudflareId: videoId}, {views: views})
+                                const video = await Video.findOneAndUpdate({cloudflareId: videoId}, {views: views})
+                                
+                                const log = new Log({
+                                    message: `New view of id: ${userId} in video: ${video._id}`,
+                                    date: Date.now()
+                                })
+                                await log.save()
+                                
                                 res.status(201).json({message: `${userId} was added to ${videoId}'s views list with success`})
                             }else{
                                 res.status(200).json({message: `${userId} is already in ${videoId}'s views list`})
