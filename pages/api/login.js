@@ -54,6 +54,7 @@ export default async function handler(req, res){
                 message: `Login request on user ${user._id} by ip ${requestIp.getClientIp(req)}`,
                 date: Date.now()
             })
+            log.save()
 
             res.status(201).json({user: user._id})
 
