@@ -13,7 +13,7 @@ const LoginForm = () => {
     const submitForm = async (e) =>{
         e.preventDefault()
         axios.post('/api/login', {
-            email: email,
+            email: email.toLowerCase(),
             password: password
         }).then(e => {
             window.location.href = '/'

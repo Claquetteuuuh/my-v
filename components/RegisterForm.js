@@ -24,7 +24,7 @@ const RegisterForm = () => {
                     pictureInput.current.style.border = '2px solid #f58b00'
                     axios.post('/api/signup', {
                         username: username,
-                        email: email,
+                        email: email.toLowerCase(),
                         password: password,
                         picture: picture
                     }).then(e => {
