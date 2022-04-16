@@ -2,6 +2,7 @@ import Videos from "./schemas/Videos"
 import dbConnect from '../../utils/dbConnect'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
+import Log from './schemas/Logs'
 dbConnect(); 
 
 export default async function handler(req, res) {
@@ -31,7 +32,12 @@ export default async function handler(req, res) {
                     likes: []
                 })
         
-                video.save().then(() => {
+                video.save().then((video) => {
+                    const log = new Log({
+                        message: `New video: ${video._id} by user: ${channelId}`,
+                        date: Date.now()
+                    })
+                    log.save()
                     res.status(201).json({message: 'the video has been uploaded'})
                 }).catch(err => res.status(400).json({error: err}))
             }else{
