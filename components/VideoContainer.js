@@ -8,7 +8,7 @@ const VideoContainer = () => {
     const [data, setdata] = useState([]);
     const [loading, setloading] = useState(true);
 
-    let listSkeletton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    let listSkeletton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // how many skeletton we want
 
     const dateParser = (date) => {
 
