@@ -37,7 +37,7 @@ const LoginForm = () => {
                 </div>
                 <div className={styles.button}>
                     <input type="submit" value='Sign In' />
-                    <Link href={'/signup'}><p>any account?</p></Link>
+                    <Link href={'/signup'}><p>want to create an account?</p></Link>
                 </div>
             </form>
         </div>
