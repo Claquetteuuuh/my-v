@@ -34,7 +34,7 @@ const VideoContainer = () => {
         <div className={styles.VideoContainer}>
             {(loading == true)? 
                 listSkeletton.map((skeletton) => (
-                    <img className={styles.skeletton} src='/img/svg/skeletton.svg' alt={`skeletton ${skeletton}`} />
+                    <img key={skeletton} className={styles.skeletton} src='/img/svg/skeletton.svg' alt={`skeletton ${skeletton}`} />
                 ))
             : console.log('loading ended')}
             {data.map((video) => (
