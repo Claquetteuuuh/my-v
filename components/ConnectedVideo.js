@@ -24,8 +24,8 @@ const ConnectedVideo = ({userid}) => {
         <div className={styles.ConnectedVideo}>
             <h3>Videos</h3>
             
-                {
-                    (videos != [])?
+                {  
+                    (videos.length != 0 )?
                         <div className={styles.swiperContainer}>
                             <Swiper
                              modules={[Navigation, Pagination, A11y]}

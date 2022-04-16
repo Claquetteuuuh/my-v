@@ -76,6 +76,8 @@
 }
 
 .avatar{
-    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border-radius: 40px;
     cursor: pointer;
 }
