@@ -8,7 +8,7 @@ export default async function handler(req, res){
         Videos.find({}).then((videos) => {
             const videoList = []
             videos.forEach(video => {
-                User.findOne({userId: video.channelId}).then((user) => {
+                User.findOne({_id: video.channelId}).then((user) => {
                     const info = {
                         videoId: video.cloudflareId,
                         title: video.title,

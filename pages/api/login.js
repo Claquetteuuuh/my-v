@@ -23,7 +23,7 @@ export default async function handler(req, res){
             throw Error('incorrect email')
         }
 
-        const maxAge = 18000 // set to 5 hours (seconds)
+        const maxAge = 604800 // set to 1week (seconds)
         const createToken = (id) =>{
             return jsonwebtoken.sign({id}, 'net ninja secret', {
                 expiresIn: maxAge
@@ -36,14 +36,14 @@ export default async function handler(req, res){
         console.log();
 
         if(user){
-            const token = createToken(user.userId)
+            const token = createToken(user._id)
             // res.cookie('jwt', token, {
             //     httpOnly: true,
             //     maxAge: maxAge * 1000
             // })
             res.setHeader("Set-Cookie", serialize('token', token, {path: "/", httpOnly: true, maxAge: maxAge})) // set cookie in the header because of nextjs
             
-            res.status(201).json({user: user.userId})
+            res.status(201).json({user: user._id})
 
         }else{
             res.status(400).json({message: 'error'})

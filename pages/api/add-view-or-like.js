@@ -10,7 +10,7 @@ export default async function handler(req, res){
             const token = req.headers.cookie.split('=')[1]
             const { id } = jwtDecode(token)
 
-            const user = await User.findOne({userId: id})
+            const user = await User.findOne({_id: id})
             const video = await Video.findOne({cloudflareId: videoId})
             const username = user.username
 

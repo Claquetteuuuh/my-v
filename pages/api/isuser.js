@@ -11,8 +11,8 @@ export default async function handler(req, res){
             console.log(channel);
             const user = await User.findOne({username: channel})
             if(user){
-                if(id == user.userId){
-                    res.status(200).json({isUser: true, picture: user.picture, userId: user.userId, email: user.email, username: user.username})
+                if(id == user._id){
+                    res.status(200).json({isUser: true, picture: user.picture, userId: user._id, email: user.email, username: user.username})
                 }else{
                     res.status(200).json({username: user.username, picture: user.picture})
                 }

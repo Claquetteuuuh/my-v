@@ -9,7 +9,7 @@ export default async function handler(req, res){
             const token = req.headers.cookie.split('=')[1]
             const {id } = jwtDecode(token)
 
-            User.findOne({userId: id}).then(e => {
+            User.findOne({_id: id}).then(e => {
                 res.status(200).json({picture: e.picture, channel: e.username})
             }).catch((err) => res.status(400).json({error: err}))
 
