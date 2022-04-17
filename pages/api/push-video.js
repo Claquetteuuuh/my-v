@@ -16,7 +16,7 @@ export default async function handler(req, res) {
                         'X-Auth-Email': `${process.env.cloudFlareEmail}`,
                         'X-Auth-Key': `${process.env.cloudFlareAuthKey}`
                     }
-        }).then((cloudflareVideo) => {
+        }).then( async (cloudflareVideo) => {
             if(req.headers.cookie){
                 const token = getCookie(req.headers.cookie, 'token')
                 const channelId = jwt_decode(token).id
