@@ -25,7 +25,7 @@ export default async function handler(req, res) {
                     cloudflareId: id,
                     title: title,
                     channelId: channelId,
-                    miniature: (miniature)?miniature: cloudflareVideo.data.result.thumbnail,
+                    miniature: (miniature && miniature != '')?miniature: cloudflareVideo.data.result.thumbnail,
                     description: description,
                     keywords: keywords,
                     date: Date.now(),

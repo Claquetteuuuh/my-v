@@ -23,9 +23,10 @@ const CompleteDescVideo = ({videoID}) => {
         <div className={styles.completeVideoContainer}>
             <iframe src={`https://iframe.videodelivery.net/${videoID}?preload=metadata&autoplay=true`} />
             <form onSubmit={e => sendVideoInMongoDb(e)}>
-                <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
-                <input type="text" value={description} onChange={e => setDescription(e.target.value)} />
-                <input type="text" value={miniature} onChange={e => setMiniature(e.target.value)} />
+                <input type="text" placeholder='Le titre de votre video' value={title} onChange={e => setTitle(e.target.value)} />
+                <textarea type="text" placeholder='La description de votre video' value={description} onChange={e => setDescription(e.target.value)} />
+                <input type="text" placeholder='http://image.png' value={miniature} onChange={e => setMiniature(e.target.value)} />
+                <input type="submit" />
             </form>
         </div>
     );
