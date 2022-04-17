@@ -17,8 +17,7 @@ const CompleteDescVideo = ({videoID}) => {
             description: description,
             keywords: []
         }).then(e => {
-            console.log(e.data)
-            // window.location.href = `/view?id=${e.data.video.videoId}`
+            window.location.href = `/view?id=${e.data.video.cloudflareId}`
         })
     }
 
