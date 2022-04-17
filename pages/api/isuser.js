@@ -1,10 +1,11 @@
 import jwtDecode from "jwt-decode";
 import User from './schemas/User'
+import getCookie from "../../utils/getCookie";
 
 export default async function handler(req, res){
     if(req.method === 'POST'){
         if(req.headers.cookie){
-            const token = req.headers.cookie.split('=')[1]
+            const token = getCookie(req.headers.cookie, 'token')
             const {id } = jwtDecode(token)
 
             const {channel} = req.body

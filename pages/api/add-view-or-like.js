@@ -2,14 +2,14 @@ import Video from './schemas/Videos'
 import User from './schemas/User'
 import Log from './schemas/Logs'
 import jwtDecode from 'jwt-decode';
-
+import getCookie from '../../utils/getCookie'
 
 export default async function handler(req, res){
     if(req.method === 'POST'){
         const { videoId, type } = req.body
 
         if(req.headers.cookie){
-            const token = req.headers.cookie.split('=')[1]
+            const token = getCookie(req.headers.cookie, 'token')
             const { id } = jwtDecode(token)
 
             const user = await User.findOne({_id: id})

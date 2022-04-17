@@ -1,23 +1,28 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styles from '../styles/PostVideo.module.css'
 import axios from 'axios'
 import * as tus from 'tus-js-client'
+import CompleteDescVideo from './CompleteDescVideo';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 const PostVideo = () => {
-    
+
     const form = useRef(null)
     const progressBar = useRef(null)
     const label = useRef(null)
     const [posted, setposted] = useState(false);
-
+    const [existInCloudflare, setexistInCloudflare] = useState(false)
     
+    const router = useRouter()
+    const queryKey = 'cdnid';
+    const videoID = router.query[queryKey] || router.asPath.match(new RegExp(`[&?]${queryKey}=(.*)(&|$)`))
 
     const fileUploaded = () =>{
         if(form.current.files[0].name != undefined){
             label.current.innerHTML = form.current.files[0].name
         }
     }
-
 
     const uploadFunc = async () =>{
         
@@ -53,6 +58,7 @@ const PostVideo = () => {
                 progressBar.current.innerHTML = "File uploaded"
                 progressBar.current.innerText = "File uploaded"
                 console.log("Download %s from %s", upload.file.name, upload.url)
+                window.location.href = `/post-video?cdnid=${upload.url.split( '/' )[4].split('?')[0]}`
             }
         })
 
@@ -73,24 +79,44 @@ const PostVideo = () => {
         })
     }
 
+    useEffect(() => {
+        if(videoID){
+            axios.get('/api/cloudflare-stream').then(e => {
+                e.data.forEach(videoInfo => {
+                    if(videoID == videoInfo.uid || videoID[1] == videoInfo.uid){
+                        setexistInCloudflare(true)
+                    }
+                });
+            })
+        }
+    }, []);
+
     return (
-        <div className={styles.PostVideo}>
-            <img src="/img/logos/logo-gradient.svg" alt="logo myv" />
-            <div className={styles.postContainer}>
-                <input onChange={fileUploaded} ref={form} id="file" type="file" accept='video/*' />
-                <label ref={label} htmlFor="file">
-                    select your file
-                </label>
-                {
-                (posted == true)?
-                    <div className={styles.progressBar}>
-                        <div ref={progressBar} className={styles.inprogress}>wait for uplaoding...</div>
-                    </div>  
-                :
-                    <button onClick={uploadFunc}><img src="/img/svg/upload-sign-svgrepo-com.svg" alt="upload logo" /></button>
-                }
+        <div className={styles.PostVideoContainer}>
                 
-            </div>
+            {(!videoID)?
+                <div className={styles.PostVideo}>
+                    <img src="/img/logos/logo-gradient.svg" alt="logo myv" />
+                    <div className={styles.postContainer}>
+                        <input onChange={fileUploaded} ref={form} id="file" type="file" accept='video/*' />
+                        <label ref={label} htmlFor="file">
+                            select your file
+                        </label>
+                        {
+                        (posted == true)?
+                            <div className={styles.progressBar}>
+                                <div ref={progressBar} className={styles.inprogress}>wait for uplaoding...</div>
+                            </div>  
+                        :
+                            <button onClick={uploadFunc}><img src="/img/svg/upload-sign-svgrepo-com.svg" alt="upload logo" /></button>
+                        }
+                            
+                            
+                    </div>
+                </div>
+            : (existInCloudflare)? <CompleteDescVideo videoID={videoID} /> : <Image src='/img/gif/loading.gif' width={200} height={70} />
+            }
+
         </div>
     );
 };

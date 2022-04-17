@@ -3,6 +3,7 @@ import dbConnect from '../../utils/dbConnect'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import Log from './schemas/Logs'
+import getCookie from '../../utils/getCookie'
 dbConnect(); 
 
 export default async function handler(req, res) {
@@ -17,7 +18,7 @@ export default async function handler(req, res) {
                     }
         }).then((cloudflareVideo) => {
             if(req.headers.cookie){
-                const token = req.headers.cookie.split('=')[1]
+                const token = getCookie(req.headers.cookie, 'token')
                 const channelId = jwt_decode(token).id
                 
                 const video = new Videos({
