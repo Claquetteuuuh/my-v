@@ -20,27 +20,33 @@ export default async function handler(req, res) {
             if(req.headers.cookie){
                 const token = getCookie(req.headers.cookie, 'token')
                 const channelId = jwt_decode(token).id
+
+                const alreadyVideo = await Videos.findOne({cloudflareId: id})
                 
-                const video = new Videos({
-                    cloudflareId: id,
-                    title: title,
-                    channelId: channelId,
-                    miniature: (miniature && miniature != '')?miniature: cloudflareVideo.data.result.thumbnail,
-                    description: description,
-                    keywords: keywords,
-                    date: Date.now(),
-                    views: [],
-                    likes: []
-                })
-        
-                video.save().then((video) => {
-                    const log = new Log({
-                        message: `New video: ${video._id} by user: ${channelId}`,
-                        date: Date.now()
+                if(!alreadyVideo){
+                    const video = new Videos({
+                        cloudflareId: id,
+                        title: title,
+                        channelId: channelId,
+                        miniature: (miniature && miniature != '')?miniature: cloudflareVideo.data.result.thumbnail,
+                        description: description,
+                        keywords: keywords,
+                        date: Date.now(),
+                        views: [],
+                        likes: []
                     })
-                    log.save()
-                    res.status(201).json({message: 'the video has been uploaded'})
-                }).catch(err => res.status(400).json({error: err}))
+            
+                    video.save().then((video) => {
+                        const log = new Log({
+                            message: `New video: ${video._id} by user: ${channelId}`,
+                            date: Date.now()
+                        })
+                        log.save()
+                        res.status(201).json({message: 'the video has been uploaded', video: video})
+                    }).catch(err => res.status(400).json({error: err}))
+                }else{
+                    res.status(200).json({message: 'this video is already in MyV'})
+                }
             }else{
                 res.status(403).json({message: 'you must be connected to post a video'})
             }

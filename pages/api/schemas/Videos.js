@@ -3,7 +3,8 @@ import mongoose from 'mongoose'
 const videoSchema = mongoose.Schema({
     cloudflareId: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
     },
     title: {
         type: String,
