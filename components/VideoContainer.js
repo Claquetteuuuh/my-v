@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/VideoContainer.module.css'
-import Video from './Video';
 import axios from 'axios'
+import Categories from './Categories';
 
 const VideoContainer = () => {
     
@@ -9,16 +9,6 @@ const VideoContainer = () => {
     const [loading, setloading] = useState(true);
 
     let listSkeletton = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // how many skeletton we want
-
-    const dateParser = (date) => {
-
-        let newDate = new Date(date).toLocaleDateString('fr-FR', {
-            year: "numeric",
-            month: 'numeric',
-            day: 'numeric',
-        })
-        return newDate
-    }
 
     useEffect(async () => {
         await axios.get('/api/mongo-stream')
@@ -36,22 +26,18 @@ const VideoContainer = () => {
                 listSkeletton.map((skeletton) => (
                     <img key={skeletton} className={styles.skeletton} src='/img/svg/skeletton.svg' alt={`skeletton ${skeletton}`} />
                 ))
-            : console.log('loading ended')}
-            {data.map((video) => (
-                
-                <Video 
-                    key={video.videoId}
-                    miniature={video.miniature}
-                    title={video.title}
-                    channelPicture={(video.channelPic)? video.channelPic : '/img/svg/random-user.jpg'}
-                    channelName={video.channel}
-                    views={video.views.length}
-                    date={(video.date)? dateParser(video.date): '00/00/00'}
-                    id={video.videoId}
-                
-                />
-                
-            )).reverse()}
+            : 
+            
+            <div>
+                <Categories keyword={"Meme"} data={data}/>
+                <Categories keyword={"Gaming"} data={data}/>
+                <Categories keyword={"Music"} data={data}/>
+                <Categories keyword={"Animal"} data={data}/>
+                <Categories keyword={"Other"} data={data}/>
+                <Categories keyword={"Any"} data={data}/>
+            </div>
+            
+            }
         </div>
     );
 };

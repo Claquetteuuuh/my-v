@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import styles from '../styles/ConnectedVideo.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper';
-import axios from 'axios'
 import 'swiper/css'
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import axios from 'axios'
 import Link from 'next/link';
 
 const ConnectedVideo = ({userid}) => {

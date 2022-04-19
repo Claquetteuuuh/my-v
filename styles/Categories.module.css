@@ -1,0 +1,16 @@
+.Categories{
+    width: 100%;
+}
+.Categories h3.title{
+    text-decoration: underline;
+    text-align: center;
+    font-weight: 700;
+    font-size: clamp(20px, 2vw, 26px);
+    align-items: center;
+    justify-content: center;
+}
+.videoContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
