@@ -34,7 +34,6 @@ const VideoContainer = () => {
                 <Categories keyword={"Music"} data={data}/>
                 <Categories keyword={"Animal"} data={data}/>
                 <Categories keyword={"Other"} data={data}/>
-                <Categories keyword={"Any"} data={data}/>
             </div>
             
             }
