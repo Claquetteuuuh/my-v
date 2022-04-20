@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Player from '../components/Player';
 import styles from '../styles/ViewContent.module.css'
 import Video from '../components/Video'
 import axios from 'axios'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link'
 
 const ViewContent = () => {
 
@@ -13,8 +14,16 @@ const ViewContent = () => {
     const id = router.query[queryKey] || router.asPath.match(new RegExp(`[&?]${queryKey}=(.*)(&|$)`))
         
     const [data, setdata] = useState([]);
+    const [thisVideo, setthisVideo] = useState()
+    const [thisVideoUser, setthisVideoUser] = useState()
 
-    const dateParser = (date) => {
+    const [hasLike, setHasLike] = useState(false)
+
+    const likeText = useRef(null)
+
+    const [loading, setloading] = useState(true)
+
+    const dateParserNumeric = (date) => {
 
         let newDate = new Date(date).toLocaleDateString('fr-FR', {
             year: "numeric",
@@ -24,21 +33,102 @@ const ViewContent = () => {
         return newDate
     }
 
+    const dateParser = (date) => {
+
+        let newDate = new Date(date).toLocaleDateString('fr-FR', {
+            year: "numeric",
+            month: 'long',
+            day: 'numeric',
+        })
+        return newDate
+    }
+
+
+    const clickLike = () => {
+        if (hasLike) {
+            axios.post('/api/dislike', {
+                videoId: id
+            }).then(res =>{
+                setHasLike(false)
+                axios.get('/api/mongo-stream')
+                .then((res) => {
+                    setdata(res.data)
+                    res.data.forEach(video => {
+                        if(video.videoId == id || video.videoId == id[1]){
+                            setthisVideo(video)
+                            axios.post('/api/get-picture', {
+                                channel: video.channel
+                            }).then(res => {
+                                setthisVideoUser(res.data)
+                                setloading(false)
+                            })
+                            
+                        }
+                    });
+                })
+            })
+        }else{
+            axios.post('/api/add-view-or-like', {
+                videoId: id,
+                type: 'like'
+            }).then(res => {
+                setHasLike(true)
+                axios.get('/api/mongo-stream')
+                    .then((res) => {
+                        setdata(res.data)
+                        res.data.forEach(video => {
+                            if(video.videoId == id || video.videoId == id[1]){
+                                setthisVideo(video)
+                                axios.post('/api/get-picture', {
+                                    channel: video.channel
+                                }).then(res => {
+                                    setthisVideoUser(res.data)
+                                    setloading(false)
+                                })
+                                
+                            }
+                        });
+                    })
+                
+            })
+        }
+    }
+
+
     useEffect(async () => {
         await axios.get('/api/mongo-stream')
         .then((res) => {
             setdata(res.data)
+            res.data.forEach(video => {
+                if(video.videoId == id || video.videoId == id[1]){
+                    setthisVideo(video)
+                    axios.post('/api/get-picture', {
+                        channel: video.channel
+                    }).then(res => {
+                        setthisVideoUser(res.data)
+                        setloading(false)
+                    })
+                    
+                }
+            });
         })
 
         await axios.post('/api/add-view-or-like', {
             videoId: id,
             type: 'view'
         }).then(res => {
-            console.log(res.data.message)
         }).catch(err =>{
             console.log(err)
         })
 
+        await axios.post('/api/has-like', {
+            cdnId: id
+        }).then(res => {
+            console.log(res);
+            setHasLike(res.data.inLikeList)
+        }).catch(err => {
+            console.log(err)
+        })
 
     }, [])
 
@@ -53,6 +143,35 @@ const ViewContent = () => {
 
                 <div className={styles.videoInfo}>
                     <Player />
+                    {(!loading)?
+                        <div className={styles.videoDesc}>
+                            <div className={styles.left}>
+                                <div className={styles.leftContainer}>
+                                    <h3>{thisVideo.title}</h3>
+                                    <p>{`${thisVideo.views.length} views  •  Posted the ${dateParser(thisVideo.date)}`}</p>
+                                    <Link href={`/channel?name=${thisVideoUser.channel}`}>
+                                        <div className={styles.profil}>
+                                            <img src={thisVideoUser.picture} alt={`picture of ${thisVideoUser.channel}`} />
+                                            <div className={styles.user}>
+                                                <p>{thisVideoUser.channel}</p>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className={styles.trait}></div>
+                            <div className={styles.right}>
+                                <div className={styles.likeContainer}>
+                                    <button onClick={e => clickLike()}><img height={32} src={(hasLike)? '/img/svg/heart-filled.svg': '/img/svg/heart-outline.png'} alt="heart button" /></button>
+                                    <p ref={likeText}> {thisVideo.likes.length} likes</p>
+                                </div>
+                                <div className={styles.shareContainer}>
+                                    <button><img height={32} src="/img/svg/share-social-outline.svg" alt="share svg" /> Share</button>
+                                </div>
+                            </div>
+                        </div>
+                    :false}
+                    <div className={styles.longTrait}></div>
                 </div>
                 <div className={styles.nextProposition}>
                 {
@@ -66,7 +185,7 @@ const ViewContent = () => {
                                 channelPicture={(video.channelPic)? video.channelPic : '/img/svg/random-user.jpg'}
                                 channelName={video.channel}
                                 views={video.views.length}
-                                date={(video.date)? dateParser(video.date): '00/00/00'}
+                                date={(video.date)? dateParserNumeric(video.date): '00/00/00'}
                                 id={video.videoId}
                             
                             />

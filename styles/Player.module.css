@@ -1,7 +1,6 @@
 .player{
     display: flex;
     justify-content: center;
-    height: 100vh;
 }
 .player div{
     width: 50%;
@@ -10,14 +9,32 @@
     z-index: -1;
 }
 .player iframe{
-    background-color: black;
+    border: none;
+
     z-index: 3;
-    height: clamp(250px, calc(60vw/1.6), 580px);
-    width: clamp(414px, 60vw, 1100px);
+    height: clamp(250px, calc(70vw/1.776), 731px);
+    width: clamp(414px, 70vw, 1300px);
 }
 
 .loading{
     position: absolute;
     left: 50%;
     transform: translate(-50%);
+}
+
+@media screen and (max-width: 1100px) {
+    .player{
+        width: 100vw;
+    }
+    .player iframe{
+        height: clamp(250px, calc(100vw/1.776), 731px);
+        width: clamp(414px, 100vw, 1300px);
+    }
+}
+
+@media screen and (max-width: 440px){
+    .player iframe{
+        height: clamp(200px, calc(100vw/1.776), 731px);
+        width: clamp(414px, 100vw, 1300px);
+    }
 }

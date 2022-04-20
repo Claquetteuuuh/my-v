@@ -19,6 +19,12 @@ export default async function handler(req, res){
             res.status(403).json({error: 'not connected'})
         }
     }else{
-        res.status(200).json({message: 'this routes only accept GET'})
+        if(req.method === "POST"){
+            const username = req.body.channel
+            User.findOne({username: username}).then(e => {
+                res.status(200).json({picture: e.picture, channel: e.username})
+            }).catch((err) => res.status(400).json({error: err}))
+        }
+
     }
 }
