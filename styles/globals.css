@@ -116,3 +116,11 @@ a {
     overflow-x: hidden;
   }
 }
+
+@media screen and (max-width: 768px) {
+  ::-webkit-scrollbar, ::-webkit-scrollbar-track, ::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+
+}
