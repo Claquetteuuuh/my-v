@@ -5,6 +5,7 @@
     align-items: center;
 }
 .PostVideo{
+    margin-top: 70px;
     min-height: 100vh;
     height: 100vh;
     display: flex;
@@ -12,9 +13,13 @@
     align-items: center;
     /* justify-content: center; */
 }
+.PostVideo h1{
+    color: rgba(0, 0, 0, 0.400);
+}
 .PostVideo img{
+    margin-top: 20px;
     height: 20%;
-    margin-top: 100px;
+    width: auto;
 }
 .postContainer{
     display: flex;

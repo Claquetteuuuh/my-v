@@ -1,7 +1,7 @@
 .Categories{
     width: 100%;
 }
-.Categories h3.title{
+.Categories h2.title{
     text-decoration: underline;
     font-weight: 700;
     font-size: clamp(20px, 2vw, 26px);

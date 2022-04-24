@@ -136,8 +136,10 @@ const ViewContent = () => {
         <div className={styles.content}>
             <Head>
                 <title>MyV | Watch video </title>
-                <meta name="description" content={`watch ${id}`} />
+                <meta name='description' content={`Regardez ${id} sur MyV ! Le premier site de streaming de video made in guadeloupe`}/>
                 <link rel="icon" href="/img/logos/logo-black.png" />
+                <link rel='canonical' href='https://www.my-v.xyz/' />
+                <html lang={'en'} />
             </Head>
 
                 <div className={styles.videoInfo}>
@@ -150,7 +152,7 @@ const ViewContent = () => {
                                     <p>{`${thisVideo.views.length} views  •  Posted the ${dateParser(thisVideo.date)}`}</p>
                                     <Link href={`/channel?name=${thisVideoUser.channel}`}>
                                         <div className={styles.profil}>
-                                            <img src={(thisVideoUser.picture)?thisVideoUser.picture: '/img/svg/random-user.jpg'} alt={`picture of ${thisVideoUser.channel}`} />
+                                            <img width={50} height={50} src={(thisVideoUser.picture)?thisVideoUser.picture: '/img/svg/random-user.jpg'} alt={`picture of ${thisVideoUser.channel}`} />
                                             <div className={styles.user}>
                                                 <p>{thisVideoUser.channel}</p>
                                             </div>
@@ -161,11 +163,11 @@ const ViewContent = () => {
                             <div className={styles.trait}></div>
                             <div className={styles.right}>
                                 <div className={styles.likeContainer}>
-                                    <button onClick={e => clickLike()}><img height={32} src={(hasLike)? '/img/svg/heart-filled.svg': '/img/svg/heart-outline.png'} alt="heart button" /></button>
+                                    <button onClick={e => clickLike()}><img width={32} height={32} src={(hasLike)? '/img/svg/heart-filled.svg': '/img/svg/heart-outline.png'} alt="heart button" /></button>
                                     <p ref={likeText}> {thisVideo.likes.length} likes</p>
                                 </div>
                                 <div className={styles.shareContainer}>
-                                    <button><img height={32} src="/img/svg/share-social-outline.svg" alt="share svg" /> Share</button>
+                                    <button><img width={32} height={32} src="/img/svg/share-social-outline.svg" alt="share svg" /> Share</button>
                                 </div>
                             </div>
                         </div>

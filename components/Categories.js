@@ -2,7 +2,7 @@ import React from 'react';
 import Video from './Video';
 import styles from '../styles/Categories.module.css'
 
-const Categories = ({keyword, data}) => {
+const Categories = ({keyword, data, loading}) => {
 
     
     const dateParser = (date) => {
@@ -17,7 +17,7 @@ const Categories = ({keyword, data}) => {
 
     return (
         <div className={styles.Categories}>
-            <h3 className={styles.title}>{keyword}</h3>
+            <h2 className={styles.title}>{keyword}</h2>
             <div className={styles.videoContainer}>
                 {
                     data.map((video) => (
@@ -25,6 +25,7 @@ const Categories = ({keyword, data}) => {
                         (keyword.toLowerCase() != 'any')?
                             (video.keywords.includes(keyword.toLowerCase()))? 
                             <Video 
+                                loading={loading}
                                 key={video.videoId}
                                 miniature={video.miniature}
                                 title={video.title}
@@ -37,6 +38,7 @@ const Categories = ({keyword, data}) => {
                             />:false
                         :          
                             <Video 
+                                loading={loading}
                                 key={video.videoId}
                                 miniature={video.miniature}
                                 title={video.title}

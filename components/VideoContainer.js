@@ -29,12 +29,13 @@ const VideoContainer = () => {
             : 
             
             <div>
-                <Categories keyword={"Meme"} data={data}/>
-                <Categories keyword={"Gaming"} data={data}/>
-                <Categories keyword={"Music"} data={data}/>
-                <Categories keyword={"Animal"} data={data}/>
-                <Categories keyword={"Other"} data={data}/>
-                <Categories keyword={"Any"} data={data}/>
+                <h1>Here is the video that we have</h1>
+                <Categories keyword={"Meme"} loading={"eager"} data={data}/>
+                <Categories keyword={"Gaming"} loading={"lazy"} data={data}/>
+                <Categories keyword={"Music"} loading={"lazy"} data={data}/>
+                <Categories keyword={"Animal"} loading={"lazy"} data={data}/>
+                <Categories keyword={"Other"} loading={"lazy"} data={data}/>
+                <Categories keyword={"Any"} loading={"lazy"} data={data}/>
             </div>
             
             }

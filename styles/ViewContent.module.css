@@ -53,6 +53,7 @@
 }
 .left .profil img{
     height: 52px;
+    width: auto;
     border-radius: 50px
 }
 .left .profil p{
@@ -107,6 +108,8 @@
     font-weight: 600;
 }
 .shareContainer img, .likeContainer img{
+    height: 32px;
+    width: auto;
     margin-right: 5px;
 }
 

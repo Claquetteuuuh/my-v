@@ -18,6 +18,9 @@
     align-items: center;
     justify-content: center;
 }
+.miniature img{
+    width: auto;
+}
 .bottom{
     width: auto;
     margin-top: 5px;

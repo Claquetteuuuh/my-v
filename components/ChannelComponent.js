@@ -36,6 +36,8 @@ const ChannelComponent = () => {
                 <title>{`MyV - ${name}`}</title>
                 <meta name='description' content={`Myv's info on user ${name}`}/>
                 <link rel="icon" href="/img/logos/logo-black.png" />
+                <link rel='canonical' href='https://www.my-v.xyz/' />
+                <html lang={'en'} />
             </Head>
 
             {

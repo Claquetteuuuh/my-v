@@ -93,10 +93,11 @@ const PostVideo = () => {
 
     return (
         <div className={styles.PostVideoContainer}>
-                
+                        
             {(!videoID)?
                 <div className={styles.PostVideo}>
-                    <img src="/img/logos/logo-gradient.svg" alt="logo myv" />
+                    <h1>Post a new video on MyV</h1>    
+                    <img width={200} height={160} src="/img/logos/logo-gradient.svg" alt="logo myv" />
                     <div className={styles.postContainer}>
                         <input onChange={fileUploaded} ref={form} id="file" type="file" accept='video/*' />
                         <label ref={label} htmlFor="file">
@@ -108,7 +109,7 @@ const PostVideo = () => {
                                 <div ref={progressBar} className={styles.inprogress}>wait for uplaoding...</div>
                             </div>  
                         :
-                            <button onClick={uploadFunc}><img src="/img/svg/upload-sign-svgrepo-com.svg" alt="upload logo" /></button>
+                            <button onClick={uploadFunc}><img width={35} height={32} src="/img/svg/upload-sign-svgrepo-com.svg" alt="upload logo" /></button>
                         }
                             
                             

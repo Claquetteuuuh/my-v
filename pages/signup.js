@@ -14,6 +14,8 @@ const signup = () => {
                 <title>{`MyV - Create an account`}</title>
                 <meta name='description' content="create your new account in myV"/>
                 <link rel="icon" href="/img/logos/logo-black.png" />
+                <link rel='canonical' href='https://www.my-v.xyz/' />
+                <html lang={'en'} />
             </Head>
             
 

@@ -24,15 +24,15 @@ const Navbar = (props) => {
     return (
         <div className={styles.navbar}>
             <div className={styles.left}>
-                <Link href="/"><img src='/img/logos/logo-gradient.png' height="47" width='55' /></Link>
+                <Link href="/"><img loading="eager" src='/img/logos/logo-gradient.png' height="47" width='55' alt={'Logo myV'} /></Link>
             </div>
             <form onSubmit={e => formSub(e)} className={styles.input}>
                 <input className={styles.text} value={formValue} onChange={e => setFormValue(e.target.value)} type="text" placeholder='rechercher une video...'/>
                 <input className={styles.submit} type='image' src={'/img/svg/search-outline.svg'} href={`/research?search=${formValue}`}/>
             </form>
             <div className={styles.right}>
-                {(userData)? <Link href={`/channel?name=${userData.channel}`}><img src={(userData.picture)? userData.picture: '/img/svg/random-user.jpg' } className={styles.avatar}/></Link>: <Link href="/login"><img className={styles.loginButton} src="/img/svg/login.svg" height={40} width={40} /></Link>}
-                {(userData)? <Link href="/post-video"><img className={styles.addButton} src="/img/svg/add-button.svg" height={50} width={50} /></Link>: false}
+                {(userData)? <Link href={`/channel?name=${userData.channel}`}><img loading="eager" height={50} width={50} src={(userData.picture)? userData.picture: '/img/svg/random-user.jpg' } className={styles.avatar} alt={`Picture of ${userData.channel}`} /></Link>: <Link href="/login"><img className={styles.loginButton} src="/img/svg/login.svg" height={40} width={40} /></Link>}
+                {(userData)? <Link href="/post-video"><img loading="eager" className={styles.addButton} src="/img/svg/add-button.svg" height={50} width={50} alt='add new video button' /></Link>: false}
             </div>
         </div>
     );

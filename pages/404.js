@@ -7,9 +7,11 @@ const page404 = () => {
     return (
         <div>
             <Head>
-            <title>MyV | Page no found</title>
-            <meta name="description" content="Cette page est un chemin de non retour" />
-            <link rel="icon" href="/img/logos/logo-black.png" />
+                <title>MyV | Page no found</title>
+                <meta name="description" content="Cette page est un chemin de non retour" />
+                <link rel="icon" href="/img/logos/logo-black.png" />
+                <link rel='canonical' href='https://www.my-v.xyz/' />
+                <html lang={'fr'} />
             </Head>
             <Navbar />
             <Container404 />

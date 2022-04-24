@@ -11,6 +11,8 @@ const login = () => {
                 <title>MyV | Login</title>
                 <meta name="description" content="MyV ! Le premier site de streaming de video made in guadeloupe. Connectez vous sur MyV" />
                 <link rel="icon" href="/img/logos/logo-black.png" />
+                <link rel='canonical' href='https://www.my-v.xyz/' />
+                <html lang={'en'} />
             </Head>
             <Navbar />
             <div className={styles.formContainer}>
