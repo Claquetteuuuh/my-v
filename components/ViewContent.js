@@ -150,7 +150,7 @@ const ViewContent = () => {
                                     <p>{`${thisVideo.views.length} views  •  Posted the ${dateParser(thisVideo.date)}`}</p>
                                     <Link href={`/channel?name=${thisVideoUser.channel}`}>
                                         <div className={styles.profil}>
-                                            <img src={thisVideoUser.picture} alt={`picture of ${thisVideoUser.channel}`} />
+                                            <img src={(thisVideoUser.picture)?thisVideoUser.picture: '/img/svg/random-user.jpg'} alt={`picture of ${thisVideoUser.channel}`} />
                                             <div className={styles.user}>
                                                 <p>{thisVideoUser.channel}</p>
                                             </div>
