@@ -34,7 +34,7 @@ const ChannelComponent = () => {
 
             <Head >
                 <title>{`MyV - ${name}`}</title>
-                <meta name='description' content={`info on ${name}`}/>
+                <meta name='description' content={`Myv's info on user ${name}`}/>
                 <link rel="icon" href="/img/logos/logo-black.png" />
             </Head>
 

@@ -9,8 +9,6 @@ const channel = () => {
     return (
         <div className={styles.channel}>
 
-            
-
             <Navbar />
             <ChannelComponent />
             

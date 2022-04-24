@@ -8,7 +8,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>MyV | Home</title>
-        <meta name="description" content="regarder des videos en ligne" />
+        <meta name="description" content="MyV ! Le premier site de streaming de video made in guadeloupe. Regardez des videos en ligne avec votre streamer de video Guadeloupéen !" />
         <link rel="icon" href="/img/logos/logo-black.png" />
       </Head>
 

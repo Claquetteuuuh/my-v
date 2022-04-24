@@ -15,7 +15,7 @@ const Research = () => {
         <div>
             <Head >
                 <title>{`MyV - Result for ${search}`}</title>
-                <meta name='description' content={`result for ${search}`}/>
+                <meta name='description' content={`MyV ! Le premier site de streaming de video made in guadeloupe. Resultat de recherche pour ${search}`}/>
                 <link rel="icon" href="/img/logos/logo-black.png" />
             </Head>
 
