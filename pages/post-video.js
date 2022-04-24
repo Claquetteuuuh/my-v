@@ -12,7 +12,6 @@ const postVideo = () => {
                 <title>MyV | File upload</title>
                 <meta name="description" content="MyV ! Le premier site de streaming de video made in guadeloupe. Postez des videos gratuitement ici !" />
                 <link rel="icon" href="/img/logos/logo-black.png" />
-                {/* <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'></link> */}
             </Head>
             <Navbar />
             <TusClientProvider>
