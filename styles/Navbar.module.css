@@ -86,12 +86,15 @@
     background: none;
     outline: none;
     border: none;
+    display: none;
 }
 
 @media screen and (max-width:845px) {
     .input{
        width: 300px;
     }
-    
+    .buttonSearch{
+        display: block;
+    }
 
 }
