@@ -15,7 +15,7 @@ const Video = (props) => {
                 </div>
             </div>
         </div>
-    );
+    );  
 };
 
 export default Video;
