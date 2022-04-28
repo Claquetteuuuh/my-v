@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/editVideoForm.module.css'
+import styles from '../styles/EditVideoForm.module.css'
 
 const editVideoForm = () => {
     return (
