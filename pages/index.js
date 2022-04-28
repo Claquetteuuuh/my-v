@@ -14,8 +14,8 @@ export default function Home() {
         <html lang={'fr'} />
       </Head>
 
-      <Navbar/>
-      <VideoContainer />
-    </div>
+          <Navbar/>
+          <VideoContainer />
+      </div>
   )
 }

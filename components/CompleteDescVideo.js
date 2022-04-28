@@ -49,19 +49,26 @@ const CompleteDescVideo = ({videoID}) => {
 
     return (
         <div className={styles.completeVideoContainer}>
-            <iframe src={`https://iframe.videodelivery.net/${videoID}?preload=metadata&autoplay=true`} />
+            <div className={styles.iframeContainer}><iframe src={`https://iframe.videodelivery.net/${videoID}?preload=metadata&autoplay=true`} /></div>
             <form onSubmit={e => sendVideoInMongoDb(e)}>
-                <input type="text" placeholder='Le titre de votre video' value={title} onChange={e => setTitle(e.target.value)} />
-                <textarea type="text" placeholder='La description de votre video' value={description} onChange={e => setDescription(e.target.value)} />
-                <input type="text" placeholder='http://image.png' value={miniature} onChange={e => setMiniature(e.target.value)} />
-                <input type="submit" />
-                <div>
-                    <label htmlFor='gaming'>Gaming</label><input ref={el => {gamingCheck = el}} id='gaming' type="checkbox"/>
-                    <label htmlFor='meme'>meme</label><input ref={el => {memeCheck = el}} id='meme' type="checkbox"/>
-                    <label htmlFor='music'>music</label><input ref={el => {musicCheck = el}} id='music' type="checkbox"/>
-                    <label htmlFor='animal'>animal</label><input ref={el => {animalCheck = el}} id='animal' type="checkbox"/>
-                    <label htmlFor='other'>other</label><input ref={el => {otherCheck = el}} id='other' type="checkbox"/>
+                <div className={styles.formBlock}>
+                    <div className={styles.formContent}>
+                        <input type="text" placeholder='Le titre de votre video' value={title} onChange={e => setTitle(e.target.value)} />
+                        <textarea type="text" placeholder='La description de votre video' value={description} onChange={e => setDescription(e.target.value)} />
+                        
+                        
+                        <div>
+                            <label htmlFor='gaming'>Gaming</label><input ref={el => {gamingCheck = el}} id='gaming' type="checkbox"/>
+                            <label htmlFor='meme'>meme</label><input ref={el => {memeCheck = el}} id='meme' type="checkbox"/>
+                            <label htmlFor='music'>music</label><input ref={el => {musicCheck = el}} id='music' type="checkbox"/>
+                            <label htmlFor='animal'>animal</label><input ref={el => {animalCheck = el}} id='animal' type="checkbox"/>
+                            <label htmlFor='other'>other</label><input ref={el => {otherCheck = el}} id='other' type="checkbox"/>
+                        </div>
+                    </div>
+
+                    <input type="text" placeholder='http://image.png' value={miniature} onChange={e => setMiniature(e.target.value)} />
                 </div>
+                <input type="submit" />
             </form>
         </div>
     );

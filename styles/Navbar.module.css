@@ -1,6 +1,6 @@
 .navbar{
     background-color: white;
-    z-index: 1000;
+    z-index: 99;
     height: 65px;
     width: 100%;
     display: flex;
