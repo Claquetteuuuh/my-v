@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 .input{
-    transition: .3s;
+    transition: .3s all ease;
     display: flex;
     align-items: center;
     background-image: linear-gradient(
