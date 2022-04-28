@@ -21,6 +21,7 @@
     cursor: pointer;
 }
 .input{
+    transition: .3s;
     display: flex;
     align-items: center;
     background-image: linear-gradient(
@@ -88,13 +89,25 @@
     border: none;
     display: none;
 }
+.closeButton{
+    background: none;
+    outline: none;
+    border: none;
+    display: none;
+    font-size: 40px;
+    font-weight: 800;
+    color: hsl(34deg 100% 48%) ;
+}
 
 @media screen and (max-width:845px) {
     .input{
-       width: 300px;
+       width: 0;
+       display: none;
     }
     .buttonSearch{
         display: block;
     }
-
+    .closeButton{
+        display: block;
+    }
 }
