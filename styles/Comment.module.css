@@ -1,0 +1,30 @@
+.comment{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.14);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+.comment img{
+    margin-right: 5px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+}
+.top{
+    display: flex;
+}
+.info p{
+    margin: 0;
+}
+.top p{
+    margin: 0 3px;
+}
+.top p:nth-child(1){
+    font-weight: 600;
+}
+.top p:nth-child(3){
+    margin-top: 2px;
+    font-size: 14px;
+}

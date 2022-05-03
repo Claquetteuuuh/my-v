@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link'
+import CommentContainer from './CommentContainer';
 
 const ViewContent = () => {
 
@@ -96,6 +97,7 @@ const ViewContent = () => {
 
 
     useEffect(async () => {
+
         await axios.get('/api/mongo-stream')
         .then((res) => {
             setdata(res.data)
@@ -124,7 +126,6 @@ const ViewContent = () => {
         await axios.post('/api/has-like', {
             cdnId: id
         }).then(res => {
-            console.log(res);
             setHasLike(res.data.inLikeList)
         }).catch(err => {
             console.log(err)
@@ -173,6 +174,7 @@ const ViewContent = () => {
                         </div>
                     :false}
                     <div className={styles.longTrait}></div>
+                    {(thisVideo)? <CommentContainer videoID={thisVideo.videoId}/>: false}
                 </div>
                 <div className={styles.nextProposition}>
                 {
