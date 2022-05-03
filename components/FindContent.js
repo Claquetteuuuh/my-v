@@ -24,35 +24,40 @@ const FindContent = () => {
         return newDate
     }
 
+    const gotoMenu = () => {
+        window.location.href = '/'
+    }
+
     useEffect(async () => {
         await axios.get('/api/mongo-stream')
         .then((res) => {
             setdata(res.data)
         })
 
-        setloading(false)
 
+        setloading(false)
     }, [])
 
     return (
         <div className={styles.findcontent}>
             {
+                
                 data.map((video) => (
-                (video.title.toLowerCase().includes(search.toLowerCase())? 
-                    <Video 
-                        key={video.videoId}
-                        miniature={video.miniature}
-                        title={video.title}
-                        channelPicture={(video.channelPic)? video.channelPic : '/img/svg/random-user.jpg'}
-                        channelName={video.channel}
-                        views={video.views.length}
-                        date={(video.date)? dateParser(video.date): '00/00/00'}
-                        id={video.videoId}
-                    
-                    />
-                : false)
-                        
-                    
+                    (search != "" && search[1] != "")? 
+                        (video.title.toLowerCase().includes(search.toLowerCase()) || video.channel.toLowerCase().includes(search.toLowerCase())? 
+                            <Video 
+                                key={video.videoId}
+                                miniature={video.miniature}
+                                title={video.title}
+                                channelPicture={(video.channelPic)? video.channelPic : '/img/svg/random-user.jpg'}
+                                channelName={video.channel}
+                                views={video.views.length}
+                                date={(video.date)? dateParser(video.date): '00/00/00'}
+                                id={video.videoId}
+                                
+                            />
+                        : false)          
+                    : gotoMenu()
                 ))
             }
         </div>

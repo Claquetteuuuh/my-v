@@ -1,4 +1,6 @@
 import User from './schemas/User'
+import dbConnect from '../../utils/dbConnect'
+dbConnect()
 
 export default async function handler(req, res){
     if(req.method === 'POST'){

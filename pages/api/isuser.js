@@ -1,6 +1,8 @@
 import jwtDecode from "jwt-decode";
 import User from './schemas/User'
 import getCookie from "../../utils/getCookie";
+import dbConnect from '../../utils/dbConnect'
+dbConnect()
 
 export default async function handler(req, res){
     if(req.method === 'POST'){

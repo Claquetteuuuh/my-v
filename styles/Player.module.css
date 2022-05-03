@@ -6,6 +6,11 @@
     width: 50%;
 }
 .player img{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
     z-index: -1;
 }
 .player iframe{

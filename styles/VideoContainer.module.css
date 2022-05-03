@@ -13,4 +13,26 @@
     height: 0;
     width: 0;
     overflow: hidden;
+    margin: 0;
+}
+
+.checkboxs{
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.checkboxs div{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;margin-right: 5px;
+}
+.checkboxs input{
+    outline: none;
+    height: clamp(16px, 1.3vw, 20px);
+    width: clamp(16px, 1.3vw, 20px);
+}
+.checkboxs label{
+    padding: 2px;
+    font-size: clamp(16px, 1.3vw, 20px);
 }

@@ -1,6 +1,8 @@
 import jwtDecode from "jwt-decode";
 import getCookie from "../../utils/getCookie";
 import Video from './schemas/Videos'
+import dbConnect from '../../utils/dbConnect'
+dbConnect()
 
 export default async function handler(req, res){
     if(req.method === 'POST'){
