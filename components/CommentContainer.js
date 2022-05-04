@@ -9,6 +9,8 @@ const CommentContainer = ({videoID}) => {
 
     const [deployed, setDeployed] = useState(false)
     const [comments, setcomments] = useState([]);
+    const [connected, setConnected] = useState(false)
+    const [myComment, setMyComment] = useState("")
 
     const deployComment = () => {
         if(deployed){
@@ -24,10 +26,25 @@ const CommentContainer = ({videoID}) => {
         }
     }
 
+    const postComment = () => {
+        if(myComment.trim().length != 0){
+            axios.post('/api/add-comment', {
+                cloudflareId: videoID,
+                content: myComment
+            }).then(res => {
+                window.location.reload()
+            })
+        }else{
+            alert('Your comment is empty')
+        }
+    }
+
     useEffect(() => {
-        console.log(videoID);
         axios.get(`/api/get-comment-of/${videoID}`).then(res => {
             setcomments(res.data)
+        })
+        axios.get('/api/get-picture').then(res => {
+            setConnected(res.data)
         })
     }, []);
 
@@ -36,6 +53,13 @@ const CommentContainer = ({videoID}) => {
             <div className={styles.container}>
                 <button onClick={() => deployComment()} >Comments <div ref={el => {arrow = el}} className={styles.arrow}></div></button>
                 <div ref={el => {container = el}} className={styles.commentContainer}>
+                    {(connected)?
+                        <div className={styles.form}>
+                            <img src={connected.picture} alt={'my picture'} />
+                            <textarea type="text" placeholder='votre commentaire' value={myComment} onChange={e => setMyComment(e.target.value)} />
+                            <button onClick={() => postComment()}>Post</button>
+                        </div>
+                    :false}
                     {comments.map((comment) => (
                         <Comment
                             key={comment._id}
@@ -43,7 +67,7 @@ const CommentContainer = ({videoID}) => {
                             content={comment.content}
                             date={comment.date}
                         />
-                    ))}
+                    )).reverse()}
                 </div>
             </div>
         </div>

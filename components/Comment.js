@@ -41,7 +41,7 @@ const Comment = ({username, content, date}) => {
                 <div className={styles.top}>
                     <p>{username}</p>
                     <p>•</p>
-                    <p>{dateParser(date)} ago</p>
+                    {(dateParser(date) == "0 day")? <p>today</p> : <p>{dateParser(date)} ago</p>}
                 </div>
                 <p>{content}</p>
             </div>

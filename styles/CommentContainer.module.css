@@ -33,3 +33,30 @@
 .commentContainer{
     display: none;
 }
+
+.form{
+    height: 80px;
+    max-height: 80px;
+    padding: 10px;
+    background-color: white;
+    display: flex;
+}
+.form img{
+    border-radius: 50px;
+}
+.form textarea{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.285);
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 85%;
+}
+.form button{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 5%;
+    font-size: 18px;
+    padding: 0 5%;
+}

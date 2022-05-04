@@ -12,6 +12,16 @@ const ConnectedVideo = ({userid}) => {
     
     const [videos, setvideos] = useState([]);
 
+    const deleteThisVideo = (id) => {
+        axios.post('/api/delete-video', {
+            id: id
+        }).then(() => {
+            window.location.reload()
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
     useEffect( async () => {
         await axios.post('/api/get-video-of', {
             userId: userid
@@ -39,6 +49,7 @@ const ConnectedVideo = ({userid}) => {
                                 {videos.map(video => (
                                     <SwiperSlide key={video._id}>
                                         <div className={styles.slide}>
+                                            <button onClick={() => deleteThisVideo(video._id)}><img src="/img/svg/trash-outline.svg" alt="trash image" height={40} /></button>
                                             <img src={video.miniature} />
                                         </div>
                                         <div className={styles.infoVideo}>

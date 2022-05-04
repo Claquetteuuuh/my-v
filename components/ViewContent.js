@@ -168,7 +168,7 @@ const ViewContent = () => {
                                     <p ref={likeText}> {thisVideo.likes.length} likes</p>
                                 </div>
                                 <div className={styles.shareContainer}>
-                                    <button><img width={32} height={32} src="/img/svg/share-social-outline.svg" alt="share svg" /> Share</button>
+                                    <button onClick={() => ('clipboard' in navigator)? navigator.clipboard.writeText(window.location.href): document.execCommand('copy', true, window.location.href)}><img width={32} height={32} src="/img/svg/share-social-outline.svg" alt="share svg" /> Copy link</button>
                                 </div>
                             </div>
                         </div>
