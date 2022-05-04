@@ -14,6 +14,7 @@ export default function Home() {
         <html lang={'fr'} />
       </Head>
 
+          <img className={styles.solid} src="/img/svg/Solide.svg" alt="background deco" />
           <Navbar/>
           <VideoContainer />
       </div>

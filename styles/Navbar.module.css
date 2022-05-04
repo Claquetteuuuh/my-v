@@ -35,7 +35,7 @@
     hsl(23deg 100% 45%) 67%,
     hsl(18deg 100% 44%) 78%,
     hsl(12deg 100% 42%) 89%,
-    hsl(0, 100%, 41%) 100%
+    rgb(209, 0, 0) 100%
     );
     padding: 3px;
     border-radius: 10px;

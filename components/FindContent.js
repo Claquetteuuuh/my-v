@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import styles from '../styles/findcontent.module.css'
 import axios from 'axios'
-import Video from "./Video"
 import { useRouter } from 'next/router';
+import SuggestedVideo from './SuggestedVideo';
 
 const FindContent = () => {
 
@@ -45,7 +45,7 @@ const FindContent = () => {
                 data.map((video) => (
                     (search != "" && search[1] != "")? 
                         (video.title.toLowerCase().includes(search.toLowerCase()) || video.channel.toLowerCase().includes(search.toLowerCase())? 
-                            <Video 
+                            <SuggestedVideo 
                                 key={video.videoId}
                                 miniature={video.miniature}
                                 title={video.title}
@@ -54,6 +54,7 @@ const FindContent = () => {
                                 views={video.views.length}
                                 date={(video.date)? dateParser(video.date): '00/00/00'}
                                 id={video.videoId}
+                                description={video.description}
                                 
                             />
                         : false)          

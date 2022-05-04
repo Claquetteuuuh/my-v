@@ -66,9 +66,9 @@ const CompleteDescVideo = ({videoID}) => {
                         </div>
                     </div>
 
-                    <input type="text" placeholder='http://image.png' value={miniature} onChange={e => setMiniature(e.target.value)} />
+                    <input className={styles.pictureInput} type="text" placeholder='http://image.png' value={miniature} onChange={e => setMiniature(e.target.value)} />
                 </div>
-                <input type="submit" />
+                <input className={styles.submit} type="submit" />
             </form>
         </div>
     );

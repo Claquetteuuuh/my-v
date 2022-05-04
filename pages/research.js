@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import FindContent from '../components/FindContent';
 import { useRouter } from 'next/router';
+import styles from '../styles/research.module.css'
 
 const Research = () => {
 
@@ -20,7 +21,7 @@ const Research = () => {
                 <link rel='canonical' href='https://www.my-v.xyz/' />
                 <html lang={'en'} />
             </Head>
-
+            <img className={styles.solid} src="/img/svg/Solide.svg" alt="background deco" />
             <Navbar />
             {/* test */}
             <FindContent/>

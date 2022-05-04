@@ -1,3 +1,10 @@
 .channel{
     height: 100%;
 }
+.solid{
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    top: 30%;
+
+}

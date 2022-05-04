@@ -1,16 +1,21 @@
 .videoInfo{
-    width: clamp(414px, 70vw, 1300px);
+    width: clamp(414px, 100vw, 1300px);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .content{
     margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     
 }
 
+
 .uniqueVideo{
+    width: 100%;
     padding: 2% 0;
 }
 
@@ -118,6 +123,10 @@
     height: 2px;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.103);
+}
+
+.nextProposition{
+    margin: 0 2%;
 }
 
 

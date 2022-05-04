@@ -1,12 +1,12 @@
 .findcontent{
-    height: 100vh;
+    padding: 0 4%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 
     align-items: flex-start;
-    overflow-x: hidden;
+    overflow: hidden;
     margin-top: 70px;
-    padding-left: 10%;
 }
 
 

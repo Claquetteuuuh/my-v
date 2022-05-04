@@ -3,6 +3,7 @@ import Head from 'next/head'
 import PostVideo from '../components/PostVideo';
 import Navbar from '../components/Navbar'
 import { TusClientProvider } from 'use-tus';
+import styles from '../styles/post-video.module.css'
 
 const postVideo = () => {
     return (
@@ -15,6 +16,7 @@ const postVideo = () => {
                 <link rel='canonical' href='https://www.my-v.xyz/' />
                 <html lang={'en'} />
             </Head>
+            <img className={styles.solid} src="/img/svg/Solide.svg" alt="background deco" />
             <Navbar />
             <TusClientProvider>
                 <PostVideo />

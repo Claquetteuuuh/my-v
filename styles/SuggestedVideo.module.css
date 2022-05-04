@@ -1,0 +1,60 @@
+.container{
+    height: 25vh;
+    width: 100%;
+    display: flex;
+    margin: 5px 0;
+}
+.miniature{
+    min-height: 220px;
+    min-width: 350px;
+    display: flex;
+    height: 100%;
+    width: 40%;
+    max-height: 300px;
+    max-width: 400px;
+    background-color: black;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+.miniature img{
+    height: 100%;
+}
+.infoVideo{
+    
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.infoVideo h3, .info p{
+    margin: 0;
+    padding: 0;
+}
+.infoVideo h3{
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.2px;
+    font-size: clamp(20px, 1.4vw,27px);
+    font-weight: 600;
+}
+.info p{
+    font-size: 14.5px;
+}
+.channel{
+    cursor: pointer;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+
+}
+.channel img{
+    border-radius: 40px;
+}
+.channel p{
+    margin-left: 5px;
+    font-size: 16px;
+}
+.info .description{
+    font-size: 18px;
+}

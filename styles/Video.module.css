@@ -1,10 +1,8 @@
 .Video{
-    background-color: white;
     min-width: 350px;
     width: 390px;
     min-height: 300px;
-    height: 320px;
-    margin: 5px 10px;
+    height: 300px;
     overflow: hidden;
     border-radius: 5px;
 }
@@ -50,6 +48,9 @@
 .right{
     margin-left: 3px;
     width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .right h3, .right p{
     font-family: 'Roboto',-apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

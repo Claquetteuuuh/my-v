@@ -1,18 +1,13 @@
 .player{
     display: flex;
     justify-content: center;
+    background-color: #FBFBFB;
 }
 .player div{
     width: 50%;
 }
-.player img{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px;
-    z-index: -1;
-}
+
+
 .player iframe{
     border: none;
 
@@ -21,11 +16,6 @@
     width: clamp(414px, 70vw, 1300px);
 }
 
-.loading{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-}
 
 @media screen and (max-width: 1100px) {
     .player{
