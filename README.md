@@ -1,6 +1,10 @@
-<p style="align:center;">
-   <img src="https://my-v.xyz/img/logos/logo-black.png />
+<p align="center">
+  <a href="https://my-v.xyz">
+    <img src="https://my-v.xyz/img/logos/logo-gradient.png" height="96">
+    <h3 align="center">MyV</h3>
+  </a>
 </p>
+
 
 - [Documentation](#documentation)
   - [Installation](#install)
