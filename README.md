@@ -5,6 +5,10 @@
   </a>
 </p>
 
+<p align="center">
+   Postez. Visionnez. Partagez
+</p>
+
 
 - [Documentation](#documentation)
   - [Installation](#install)
