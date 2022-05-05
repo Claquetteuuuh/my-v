@@ -23,7 +23,7 @@ MyV est une plateforme de visionnage de video en ligne gratuite, créé pour le 
     - [Router](#router)
     - [Composant](#composant)
     - [Route API](#route-api)
-    - [Utilisation du site](#Utilisation)
+    - [Utilisation du site](#utilisation-du-site)
 
 ## Documentation
 
@@ -63,3 +63,22 @@ Le router de MyV est constitué de:
 ## Composant
 Les composants React sont au coeur du projet MyV. Pour comprendre leurs fonctionnement, rendez-vous sur *https://fr.reactjs.org/docs/components-and-props.html*.
 Tout les composants sont situer dans le dossier <a href="https://github.com/Claquetteuuuh/my-v/tree/main/components">`components`</a> et sont liée à un fichier css sous la forme `<COMPOSANT>.module.css` afin de generer un nom de classe unique.
+
+## Route API
+Après les routes "classique" renvoyant une page HTML, le router offre des routes dédier à l'API et chargé de renvoyer des donnés en JSON.
+Les routes de l'API sont:
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/mongo-stream.js">`L'envois des videos au client`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/signup.js">`La creation de compte`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/login.js">`La connection à votre compte`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/logout.js">`La déconnection`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/get-picture.js">`La récuperation de la photo de profil d'un utilisateur`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/push-video.js">`La publication d'une video`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/add-comment.js">`La publication de commentaire sur une video`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/add-view-or-like.js">`L'ajout de like ou de vue sur une video`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/dislike.js">`La suppression d'un like sur une video`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/has-like.js">`La verification de la présence d'un like sur une video`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/isuser.js">`La comparaison de 2 utilisateur pour savoir si ils sont les mêmes</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/get-video-of.js">`La recuperation des videos d'un utilisateur`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/get-comment-of/%5Bpid%5D.js">`La récuperation des commentaires d'une video`</a>
+
+## Utilisation du site
