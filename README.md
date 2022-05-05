@@ -1,3 +1,7 @@
+<p style="align:center;">
+   <img src="https://my-v.xyz/img/logos/logo-black.png />
+</p>
+
 - [Documentation](#documentation)
   - [Installation](#install)
     - [NodeJS](#nodejs)
