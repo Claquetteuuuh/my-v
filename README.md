@@ -58,3 +58,4 @@ Le router de MyV est constitué de:
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/research.js">`La page de recherche de video`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/view.js">`La page de visionnage de video`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/404.js">`La page 404`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/tree/main/pages/api">Toutes les routes de l'<a href="">api</a></a>
