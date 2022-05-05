@@ -22,7 +22,7 @@ MyV est une plateforme de visionnage de video en ligne gratuite, créé pour le 
     - [Server](#server)
     - [Router](#router)
     - [Composant](#composant)
-    - [Route API](#api)
+    - [Route API](#route-api)
     - [Utilisation du site](#Utilisation)
 
 ## Documentation
@@ -34,7 +34,7 @@ Pour lancer le code chez vous il vous sera indispensable d'installer tout les ou
 Dans un premier temps vous devez installer <a href="https://nodejs.org/en/download/">NodeJS</a>, et suivre les instructions en oubliant pas d'installer `npm`.
 
 ## Telecharger Le Code
-Pour telecharger le code, vous devez vous rendre sur **https://github.com/Claquetteuuuh/my-v** et cliquer sur Code puis sur ZIP.
+Pour telecharger le code, vous devez vous rendre sur *https://github.com/Claquetteuuuh/my-v* et cliquer sur Code puis sur ZIP.
 
 ## Dependances
 Une fois votre dossier dézippé, vous remarquerez dans le fichier <a href="https://github.com/Claquetteuuuh/my-v/blob/main/package.json">`package.json`</a> qu'il y a la liste des dépendances du projet. Rendez vous sur votre terminal dans le chemin du dossier puis effectuer la commande `npm install` pour les installer.
@@ -46,7 +46,7 @@ Pour executer le code du site vous devez vous rendre sur votre terminal dans le 
 Comment utiliser MyV ?
 
 ## Server
-Grâce à <a href="https://nextjs.org/">NextJS</a> le server est directement lancé sans code de notre part, cependant il vous est possible de creer votre server custom, pour en savoir plus rendez vous sur **https://nextjs.org/docs/advanced-features/custom-server**.
+Grâce à <a href="https://nextjs.org/">NextJS</a> le server est directement lancé sans code de notre part, cependant il vous est possible de creer votre server custom, pour en savoir plus rendez vous sur *https://nextjs.org/docs/advanced-features/custom-server*.
 
 ## Router
 Le router de MyV est constitué de:
@@ -58,4 +58,8 @@ Le router de MyV est constitué de:
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/research.js">`La page de recherche de video`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/view.js">`La page de visionnage de video`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/404.js">`La page 404`</a>
-  - <a href="https://github.com/Claquetteuuuh/my-v/tree/main/pages/api">Toutes les routes de l'<a href="">api</a></a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/tree/main/pages/api">Toutes les routes de l'<a href="#route-api">api</a></a>
+
+## Composant
+Les composants React sont au coeur du projet MyV. Pour comprendre leurs fonctionnement, rendez-vous sur *https://fr.reactjs.org/docs/components-and-props.html*.
+Tout les composants sont situer dans le dossier <a href="https://github.com/Claquetteuuuh/my-v/tree/main/components">`components`</a> et sont liée à un fichier css sous la forme `<COMPOSANT>.module.css` afin de generer un nom de classe unique.
