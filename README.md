@@ -47,3 +47,14 @@ Comment utiliser MyV ?
 
 ## Server
 Grâce à <a href="https://nextjs.org/">NextJS</a> le server est directement lancé sans code de notre part, cependant il vous est possible de creer votre server custom, pour en savoir plus rendez vous sur **https://nextjs.org/docs/advanced-features/custom-server**.
+
+## Router
+Le router de MyV est constitué de:
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/index.js">`La page d'accueil`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/signup.js">`La page d'enregistrement`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/login.js">`La page de connection`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/channel.js">`La page de chaine`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/post-video.js">`La page d'envois de video`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/research.js">`La page de recherche de video`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/view.js">`La page de visionnage de video`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/404.js">`La page 404`</a>
