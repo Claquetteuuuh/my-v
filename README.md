@@ -77,7 +77,7 @@ Les routes de l'API sont:
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/add-view-or-like.js">`L'ajout de like ou de vue sur une video`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/dislike.js">`La suppression d'un like sur une video`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/has-like.js">`La verification de la présence d'un like sur une video`</a>
-  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/isuser.js">`La comparaison de 2 utilisateur pour savoir si ils sont les mêmes</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/isuser.js">`La comparaison de 2 utilisateur pour savoir si ils sont les mêmes`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/get-video-of.js">`La recuperation des videos d'un utilisateur`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/get-comment-of/%5Bpid%5D.js">`La récuperation des commentaires d'une video`</a>
 
