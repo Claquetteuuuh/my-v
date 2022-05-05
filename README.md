@@ -37,7 +37,7 @@ Dans un premier temps vous devez installer <a href="https://nodejs.org/en/downlo
 Pour telecharger le code, vous devez vous rendre sur *https://github.com/Claquetteuuuh/my-v* et cliquer sur Code puis sur ZIP.
 
 ## Dependances
-Une fois votre dossier dézippé, vous remarquerez dans le fichier <a href="https://github.com/Claquetteuuuh/my-v/blob/main/package.json">`package.json`</a> qu'il y a la liste des dépendances du projet. Rendez vous sur votre terminal dans le chemin du dossier puis effectuer la commande `npm install` pour les installer.
+Une fois votre dossier dézippé, vous remarquerez dans le fichier <a href="https://github.com/Claquetteuuuh/my-v/blob/main/package.json">`package.json`</a> qu'il y a la liste des dépendances du projet. Rendez vous sur votre terminal dans le chemin du dossier puis effectuer la commande `npm install` pour les installer. **IMPORTANT** Vous aurez également besoin du fichier `next.config.js` contenant les mots de passes des APIs et bases de données, à glisser directement à la racine, (si vous ne l'avez pas obtenu, veuillez le demander par mail `th.biabiany.dev@gmail.com`).
 
 ## Demarrage
 Pour executer le code du site vous devez vous rendre sur votre terminal dans le chemin du dossier puis effectuer la commande `npm run dev` qui lancera le site en mode développement. Vous pourrez donc modifier des fichiers et observer le resultat directement sur `http://localhost:PORT`.
@@ -77,9 +77,8 @@ Les routes de l'API sont:
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/add-view-or-like.js">`L'ajout de like ou de vue sur une video`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/dislike.js">`La suppression d'un like sur une video`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/has-like.js">`La verification de la présence d'un like sur une video`</a>
-  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/isuser.js">`La comparaison de 2 utilisateur pour savoir si ils sont les mêmes`</a>
+  - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/isuser.js">`La comparaison de 2 utilisateur pour savoir si ils sont les mêmes</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/get-video-of.js">`La recuperation des videos d'un utilisateur`</a>
   - <a href="https://github.com/Claquetteuuuh/my-v/blob/main/pages/api/get-comment-of/%5Bpid%5D.js">`La récuperation des commentaires d'une video`</a>
 
 ## Utilisation du site
-Pour en savoir plus sur l'utilisation du site, visionnez cette <a>video</a>
