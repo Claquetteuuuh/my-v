@@ -10,7 +10,7 @@
 </p>
 
 # MyV
-MyV est une plateforme de visionnage de video en ligne
+MyV est une plateforme de visionnage de video en ligne gratuite, créé pour le concour Les Trophées NSI en utilisant **<a href="https://fr.reactjs.org/">ReactJS</a>** et **<a href="https://nextjs.org/">NextJS</a>**. Grâce à MyV, vous pouvez 
 
 - [Documentation](#documentation)
   - [Installation](#install)
