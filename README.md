@@ -25,3 +25,9 @@ MyV est une plateforme de visionnage de video en ligne gratuite, créé pour le 
     - [Utilisation](#Utilisation)
 
 ## Documentation
+
+## Installation
+Pour lancer le code chez vous il vous sera indispensable d'installer tout les outils nécessaire.
+
+## NodeJS
+Dans un premier temps vous devez installer <a href="https://nodejs.org/en/download/">NodeJS</a>, et suivre les instructions en oubliant pas d'installer `npm`.
