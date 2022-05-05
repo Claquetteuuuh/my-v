@@ -15,6 +15,7 @@ MyV est une plateforme de visionnage de video en ligne gratuite, créé pour le 
 - [Documentation](#documentation)
   - [Installation](#installation)
     - [NodeJS](#nodejs)
+    - [Telecharger Le Code](#telecharger)
     - [Dependances](#dependances)
     - [Demarrage](#demarrage)
   - [Utilisation](#utilisation)
@@ -31,3 +32,9 @@ Pour lancer le code chez vous il vous sera indispensable d'installer tout les ou
 
 ## NodeJS
 Dans un premier temps vous devez installer <a href="https://nodejs.org/en/download/">NodeJS</a>, et suivre les instructions en oubliant pas d'installer `npm`.
+
+## Telecharger Le Code
+Pour telecharger le code, vous devez vous rendre sur **https://github.com/Claquetteuuuh/my-v** et cliquer sur Code puis sur ZIP.
+
+## Dependances
+Une fois votre dossier dézippé, vous remarquerez dans le fichier <a href="https://github.com/Claquetteuuuh/my-v/blob/main/package.json">`package.json`</a> qu'il y a la liste des dépendances du projet. Rendez vous sur votre terminal dans le chemin du dossier puis effectuer la commande `npm install` pour les installer.
