@@ -9,6 +9,8 @@
    Postez. Visionnez. Partagez
 </p>
 
+#MyV
+MyV est une plateforme de visionnage de video en ligne
 
 - [Documentation](#documentation)
   - [Installation](#install)
