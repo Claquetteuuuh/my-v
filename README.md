@@ -1,23 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
+import sys
 
-int main(int argc, char **argv){
-    if(argc < 3){
-        return -1;
-    }else{
-        printf("%s", argv[1]);
-        float calcul= atof(argv[1])/ atof(argv[2]);
-        float quotient=calcul;
-        printf("%f/%f =%f quotient=%f diviseur=%f", atof(argv[1]), atof(argv[2]),calcul,quotient, atof(argv[2]));
-        if(atof(argv[2])==0){
-            return 1;
-        }
-        if((atof(argv[1])<0 || atof(argv[2])<0) && atof(argv[2])!=0){
-            return 2;
-        }
-        return 0;
-    }
-}
+def main(argv):
+    if len(argv) <3:
+        return -1
+    else:
+        calcul = float(argv[1])/float(argv[2])
+        print(f"{argv[1]}/{argv[2]}={calcul} quotien={calcul} diviseur={argv[2]}")
+        if(float(argv[2]) == 0):
+            return 1
+        if((float(argv[1]) < 0 or float(argv[2]) < 0) and float(argv[2]) != 0):
+            return 2
+
+        return 0
+        
+if __name__ == "__main__":
+    main(sys.argv)
 
 
 
