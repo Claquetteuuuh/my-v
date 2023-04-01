@@ -1,7 +1,7 @@
 
 <p align="center">
   <a href="https://my-v.vercel.app">
-    <img src="https://my-v.xyz/img/logos/logo-gradient.png" height="96">
+    <img src="https://my-v.vercel.app/img/logos/logo-gradient.png" height="96">
     <h3 align="center">MyV</h3>
   </a>
 </p>
